@@ -1,0 +1,10 @@
+[book]
+authors = ["Simone Shawn Cazzaniga"]
+language = "it"
+multilingual = false
+src = "src"
+title = "Introduzione al Pipelining"
+
+[output.html]
+default-theme = "Ayu"
+additional-js = ["main.js", "js.js"]

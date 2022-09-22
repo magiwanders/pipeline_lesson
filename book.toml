@@ -8,3 +8,4 @@ title = "Introduzione al Pipelining"
 [output.html]
 default-theme = "Ayu"
 additional-js = ["main.js", "js.js"]
+cname = "pipeline-lesson.magiwanders.com" 

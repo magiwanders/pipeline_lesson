@@ -36,5 +36,5 @@
 // const paper = circuit.displayOn($('#paper'));
 // // activate real-time simulation
 // circuit.start();
-
+console.log('Boot...')
 BuildSHEAS(document.getElementById('sheas_container')) 

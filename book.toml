@@ -7,5 +7,11 @@ title = "Introduzione al Pipelining"
 
 [output.html]
 default-theme = "Ayu"
-additional-js = ["main.js", "js.js"]
+additional-js = [
+    "simple_hardware_editor_and_simulator/chips.js", 
+    "simple_hardware_editor_and_simulator/digitaljs_webpack_backup.js", 
+    "simple_hardware_editor_and_simulator/index.js",
+    "simple_hardware_editor_and_simulator/lz-string_backup.js",
+    "simple_hardware_editor_and_simulator/page_builders.js",   
+    "book.js"]
 cname = "pipeline-lesson.magiwanders.com" 

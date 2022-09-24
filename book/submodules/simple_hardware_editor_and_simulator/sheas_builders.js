@@ -1,10 +1,21 @@
+const version = 'v1.1'
+
+function Title() {
+    return _div({id:'title'},
+        [
+            _h1({style: 'display: inline-block;'}, 'Simple Hardware Editor And Simulator'),
+            version
+        ]
+    )
+}
+
 function AddOrLoadRow() {
     return _div({id: 'add_or_load_line'},
         [
             _label({for: 'components'}, 'Choose a component'),
             _select({id: 'components', name: 'components', onchange: 'display_additional_settings()'},
                 [
-                    _option({value: 'saved_circuit'},'Saved Circuit'),                    
+                    _option({value: 'saved_circuit'},'Saved Circuit'),
                     _option({value: 'clipboard_circuit'},'Circuit from Clipboard'),
                     _optgroup({label: 'I/O Components'},
                         [
@@ -54,16 +65,16 @@ function AddOrLoadRow() {
                     ),
                     _optgroup({label: 'Buses'},
                         [
-                            _option({value: 'group'},'Bus Group'), 
+                            _option({value: 'group'},'Bus Group'),
                             _option({value: 'ungroup'},'Bus Ungroup')
                         ]
                     ),
                     _optgroup({label: 'Cores'},
                         [
-                            _option({value: 'single_cycle'},'Single Cycle (Core only)'), 
-                            _option({value: 'pipeline'},'Pipeline (Core only)') 
+                            _option({value: 'single_cycle'},'Single Cycle (Core only)'),
+                            _option({value: 'pipeline'},'Pipeline (Core only)')
                         ]
-                    )                    
+                    )
                 ]
             ),
             _div({id: 'additional_settings', style: 'display: inline-block;'}),
@@ -80,7 +91,7 @@ function RemoveRow() {
     return _div({id: 'remove_line'},
         [
             _input({type: 'text', name: 'to_remove', id: 'to_remove', placeholder: 'Name the Component'},),
-            'to', 
+            'to',
             _button({id: 'remove', onclick: 'remove_chip()'},'Remove')
         ]
     )
@@ -111,7 +122,7 @@ function VisualizationControls() {
 }
 
 function Paper() {
-    return _div( {style: 'height:500px; width:100%; overflow: scroll; border-style: inset; pointer-events:painted;'}, _div({id: 'paper'}) )
+    return _div( {style: 'max-height:500px; width:100%; overflow: scroll; pointer-events:painted; scrollbar-color: white'}, _div({id: 'paper'}) )
 }
 
 function SimulationControls() {
@@ -128,15 +139,16 @@ function MonitorOrTesterControls() {
     return _div({id: 'monitor_or_tester_controls'},
         [
             _button({id: 'show_monitor', onclick: 'monitor_or_tester("monitor")'}, 'Monitor Tab'),
-            _button({id: 'show_tester', onclick: 'monitor_or_tester("tester")'}, 'Tester Tab') 
+            _button({id: 'show_tester', onclick: 'monitor_or_tester("tester")'}, 'Tester Tab')
         ]
     )
 }
 
-function MonitorControls() {
+function MonitorControls(title=true) {
+    console.log('Title for monitor: ', title)
     return _div({id: 'monitor_controls'},
         [
-            _h3({id: 'monitor_title'}, 'Monitor'),
+            title ? _h3({id: 'monitor_title'}, 'Monitor') : _div(),
             'Click on the blue looking glass that pops up hovering wires to track them below.',
             _br(), 'Monitor',
             _button({id: 'zoom_in', onclick: 'zoom_in()'}, 'Zoom In'),
@@ -148,7 +160,7 @@ function MonitorControls() {
 }
 
 function Monitor() {
-    return _div({style: 'height:500px; width:100%; pointer-events:painted;'},_div({id: 'monitor'}))
+    return _div({style: 'width:100%; pointer-events:painted;'},_div({id: 'monitor'}))
 }
 
 function MonitorDiv() {
@@ -164,7 +176,7 @@ function TesterControls() {
     return _div({id: 'tester_controls'},
         [
             _h3({id: 'tester_title'}, 'Tester'),
-            '(this is the digitaljs IOPanel, it will be substituted by a more advanced tester.)', 
+            '(this is the digitaljs IOPanel, it will be substituted by a more advanced tester.)',
             _br(), _br()
         ]
     )
@@ -187,6 +199,7 @@ function BuildSHEAS(sheas_container) {
     window.onbeforeunload = shutdown
     sheas_container.appendChild( _div({id: 'sheas'},
         [
+            Title(),
             AddOrLoadRow(),
             RemoveRow(),
             RenameRow(),
@@ -198,4 +211,21 @@ function BuildSHEAS(sheas_container) {
             TesterDiv()
         ]
     ))
+    sheas_container.style['background-color'] = 'white'
+}
+
+function BuildEmbeddedSHEAS(sheas_container, compressed_chip) {
+    window.onbeforeunload = shutdown
+    sheas_container.appendChild( _div({id: 'sheas'},
+        [
+            Paper(),
+            SimulationControls(),
+            MonitorControls(false),
+            Monitor()
+        ]
+    ))
+    sheas_container.style['background-color'] = 'white'
+    sheas_container.style['color'] = 'black'
+    sheas_container.style['border-style'] = 'solid'
+    load(JSON.parse(LZString.decompressFromBase64(compressed_chip)))
 }

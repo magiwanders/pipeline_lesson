@@ -9,10 +9,10 @@ title = "Introduzione al Pipelining"
 default-theme = "Ayu"
 additional-js = [
     "submodules/js_builds_html/html_builders.js",
-    "submodules/simple_hardware_editor_and_simulator/chips.js", 
-    "submodules/simple_hardware_editor_and_simulator/digitaljs_webpack_backup.js", 
-    "submodules/simple_hardware_editor_and_simulator/index.js",
+    "submodules/simple_hardware_editor_and_simulator/digitaljs_webpack_backup.js",
     "submodules/simple_hardware_editor_and_simulator/lz-string_backup.js",
-    "submodules/simple_hardware_editor_and_simulator/page_builders.js",   
-    "book.js"]
+    "submodules/simple_hardware_editor_and_simulator/sheas_builders.js",   
+    "submodules/simple_hardware_editor_and_simulator/sheas_functions.js",   
+    "lesson.js"]
+additional-css = ["scrollbar.css"]
 cname = "pipeline-lesson.magiwanders.com" 

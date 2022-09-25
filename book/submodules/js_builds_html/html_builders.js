@@ -38,3 +38,4 @@ function _optgroup(attributes, children) {return _Object('optgroup', attributes,
 function _h1(attributes, children) {return _Object('h1', attributes, children)}
 function _h2(attributes, children) {return _Object('h2', attributes, children)}
 function _h3(attributes, children) {return _Object('h3', attributes, children)}
+function _a(attributes, children) {return _Object('a', attributes, children)}

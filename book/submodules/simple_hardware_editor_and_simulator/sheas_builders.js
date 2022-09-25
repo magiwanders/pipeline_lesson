@@ -109,14 +109,22 @@ function RenameRow() {
 }
 
 function VisualizationControls() {
-    return _div({id: 'visualization_controls'},
+    return _div({id: 'visualization_controls', style: 'display: flex;'},
         [
             _button({id: 'reload', onclick: 'reload()'}, 'Reload'), ',',
             _button({id: 'reset', onclick: 'reset()'}, 'Reset'), ',',
             _button({id: 'save', onclick: 'save()'}, 'Save'), ',',
+            ShareButtons(),
+            _button({id: 'debug', onclick: 'debug()', style: 'visibility: hidden;'}, 'Debug')
+        ]
+    )
+}
+
+function ShareButtons() {
+    return _div({id: 'share_buttons'},
+        [
             _button({id: 'share_chip', onclick: 'share_chip()'}, 'Share only the chip'), 'or',
-            _button({id: 'share_link', onclick: 'share_link()'}, 'Share circuit as link'), '.',
-            _button({id: 'debug', onclick: 'debug()', style: 'visibility: hidden;'}, 'Debug'),
+            _button({id: 'share_link', onclick: 'share_link()'}, 'Share circuit as link'), '.'
         ]
     )
 }
@@ -145,7 +153,6 @@ function MonitorOrTesterControls() {
 }
 
 function MonitorControls(title=true) {
-    console.log('Title for monitor: ', title)
     return _div({id: 'monitor_controls'},
         [
             title ? _h3({id: 'monitor_title'}, 'Monitor') : _div(),
@@ -195,10 +202,8 @@ function TesterDiv() {
     )
 }
 
-function BuildSHEAS(sheas_container) {
-    window.onbeforeunload = shutdown
-    sheas_container.innerHTML = ''
-    sheas_container.appendChild( _div({id: 'sheas'},
+function CompleteSHEAS() {
+    return _div({id: 'sheas'},
         [
             Title(),
             AddOrLoadRow(),
@@ -211,23 +216,37 @@ function BuildSHEAS(sheas_container) {
             MonitorDiv(),
             TesterDiv()
         ]
-    ))
-    sheas_container.style['background-color'] = 'white'
+    )
 }
 
-function BuildEmbeddedSHEAS(sheas_container, compressed_chip) {
-    window.onbeforeunload = shutdown
-    sheas_container.innerHTML = ''
-    sheas_container.appendChild( _div({id: 'sheas'},
+function EmbeddedSHEAS() {
+    return _div({id: 'sheas'},
         [
+            ShareButtons(),
             Paper(),
             SimulationControls(),
             MonitorControls(false),
             Monitor()
         ]
-    ))
+    )
+}
+
+function buildSHEAS(embedding_type, sheas_container, compressed_chip) {
+    window.onbeforeunload = shutdown
+    sheas_container.innerHTML = ''
+    var sheas
+    switch (embedding_type) {
+        case 'complete': sheas = CompleteSHEAS(); break;
+        case 'embedded': sheas = EmbeddedSHEAS(); break;
+        default: break;
+    }
+    sheas_container.appendChild(sheas)
     sheas_container.style['background-color'] = 'white'
     sheas_container.style['color'] = 'black'
     sheas_container.style['border-style'] = 'solid'
-    load(JSON.parse(LZString.decompressFromBase64(compressed_chip)))
+    if (compressed_chip == undefined) {
+        setup()
+    } else {
+        load(JSON.parse(LZString.decompressFromBase64(compressed_chip)), false)
+    }
 }

@@ -2,6 +2,27 @@ var url, chip, circuit, monitor, monitorview, iopanel, paper;
 
 //#region PAGE-WIDE FUNCTIONS
 
+function setup() {
+    console.log('SETUP')
+  url = new URLSearchParams(window.location.search)
+  saved_chip_state = localStorage.getItem('chip')
+  // Check if the URL actually contains some chip to load, if not check for chip saved in local memory, if empty load empty chip
+  if (url.get('chip')==null || url.get('chip')=='') {
+    if (saved_chip_state==null || saved_chip_state=='' || saved_chip_state==undefined) {
+      load(get_empty_chip(), false)
+    } else {
+      load(JSON.parse(LZString.decompressFromBase64(saved_chip_state)), false)
+    }
+  } else {
+    load(JSON.parse(LZString.decompressFromBase64(url.get('chip'))), false)
+    set_url('chip', '')
+  }
+  document.getElementById('components').value = url.get('select')
+  display_additional_settings()
+  if (url.get('bits')!=undefined && url.get('bits')!=null && url.get('bits')!='' && document.getElementById('bits')!=null) document.getElementById('bits').value = url.get('bits')
+  save_state()
+}
+
   function shutdown() {
     save_state()
     monitorview.shutdown()
@@ -45,9 +66,9 @@ var url, chip, circuit, monitor, monitorview, iopanel, paper;
       alert('Circuit too big to be shared by URL. Use the "Share the chip" button and load it in another SHEAS window with the "Circuit in Clipboard" option, while still holding the chip in the clipboard.')
     } else {
       compressed_circuit = save_state()
-      url.set('chip', compressed_circuit)
-      navigator.clipboard.writeText('https://sheas.magiwanders.com/?' + url.toString());
-      url.set('chip', '')
+      var url_params = new URLSearchParams()
+      url_params.set('chip', compressed_circuit)
+      navigator.clipboard.writeText('https://sheas.magiwanders.com/?' + url_params.toString());
     }
     setTimeout(() => {document.getElementById('share_link').innerHTML = 'Share as link'}, 3000);
   }
@@ -55,7 +76,7 @@ var url, chip, circuit, monitor, monitorview, iopanel, paper;
   function save_state() {
     var compressed_circuit = LZString.compressToBase64(JSON.stringify(circuit.toJSON()))
     localStorage.setItem("chip", compressed_circuit);
-    set_url('select', document.getElementById('components').value)
+    if (document.getElementById('components')!=null) set_url('select', document.getElementById('components').value)
     if (document.getElementById('bits')) set_url('bits', document.getElementById('bits').value)
     return compressed_circuit
   }
@@ -179,7 +200,7 @@ var url, chip, circuit, monitor, monitorview, iopanel, paper;
       case "clipboard_circuit": clipboard_chip(callback); break;
       case "group": callback(get_group_chip()); break;
       case "ungroup": callback(get_ungroup_chip()); break;
-      case "singlecycle": singlecycle_chip(callback); break;
+      case "single_cycle": singlecycle_chip(callback); break;
       case "pipeline": pipelined_chip(callback); break;
       default: console.log("FUNCTION NOT YET IMPLEMENTED"); break;
     }
@@ -305,7 +326,7 @@ var url, chip, circuit, monitor, monitorview, iopanel, paper;
   }
 
   function load(chip_to_load, reload=true) {
-    console.log('LOAD')
+    console.log('LOAD:')
     console.log(chip_to_load)
     chip = chip_to_load
 

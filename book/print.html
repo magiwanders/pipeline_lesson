@@ -257,6 +257,17 @@
 </ul>
 </li>
 </ul>
+<h3 id="indice"><a class="header" href="#indice">Indice</a></h3>
+<ul>
+<li><a href="./1.1_esercizi.html">Esercizi</a></li>
+<li><a href="./1.2_soluzioni.html">Soluzioni</a></li>
+<li><a href="./1.3_altri_prerequisiti.html">Altri Prerequisiti</a></li>
+<li><a href="./1.4_registro.html">Registro</a></li>
+<li><a href="./1.5_rom.html">ROM</a></li>
+<li><a href="./1.6_register_file.html">Register File</a></li>
+<li><a href="./1.7_pc.html">PC</a></li>
+<li><a href="./1.8_alu.html">ALU</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="esercizi-sui-prerequisiti"><a class="header" href="#esercizi-sui-prerequisiti">Esercizi sui Prerequisiti</a></h1>
 <p>Si ricorda che nella sezione <a href="./5_appendice.html">Appendice</a> è presente un PDF riassuntivo dell'intero Instruction Set RV32IMAC.</p>
 <ol>
@@ -426,6 +437,17 @@
 <div id="sheas_container_alu"><div style="width:100%; height:100%"><div class="loader"></div></div></div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="temporizzazione"><a class="header" href="#temporizzazione">Temporizzazione</a></h1>
 <iframe width="854" height="480" src="https://www.youtube.com/embed/CUn9LVzQL0g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h3 id="indice-1"><a class="header" href="#indice-1">Indice</a></h3>
+<ul>
+<li><a href="./2.1_ritardo_di_propagazione.html">Ritardo di Propagazione</a></li>
+<li><a href="./2.2_rtl.html">RTL</a></li>
+<li><a href="./2.3_esercizi.html">Esercizi</a></li>
+<li><a href="./2.4_soluzioni.html">Soluzioni</a></li>
+<li><a href="./2.5_diagramma_rtl.html">Diagramma RTL</a></li>
+<li><a href="./2.6_pipeline.html">Pipeline</a></li>
+<li><a href="./2.7_esercizi.html">Esercizi</a></li>
+<li><a href="./2.8_soluzioni.html">Soluzioni</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ritardo-di-propagazione"><a class="header" href="#ritardo-di-propagazione">Ritardo di Propagazione</a></h1>
 <p>In questa parte della lezione si ricorda che le porte logiche studiate finora &quot;calcolano&quot; il proprio output con un certo ritardo di propagazione, e si studiano le conseguenze che questo ha sulla frequenza di clock di un processore.</p>
 <div id="sheas_container_1"><div style="width:100%; height:100%"><div class="loader"></div></div></div>
@@ -745,7 +767,15 @@
 <li><code>Abbiamo visto il ritardo di propagazione del circuito Incrementer essere teoricamente di quasi 90 unità di tempo. Cosa cambia essendo uno dei due addendi sempre 1? Qual è il caso di maggior ritardo effettivo di propagazione per l'Incrementer?</code> Se uno degli addendi è sempre lo stesso numero, non succederà mai in alcun Full Adder che tutti gli input cambino nello stesso momento (caso di maggior ritardo per il componente Full Adder). Al massimo cambieranno due alla volta (il primo addendo e il carry), diminuendo il ritardo del Full Adder di almeno 5 unità di tempo (da 12 a 7). Il caso di maggior ritardo è 127+1: infatti il carry deve attraversare tutti i Full Adder per produrre il risultato corretto (7x7+5 = 54 unità di tempo contro le precedenti 12x7+5=89).</li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="costruzione-pipeline"><a class="header" href="#costruzione-pipeline">Costruzione Pipeline</a></h1>
-<iframe width="854" height="480" src="https://www.youtube.com/embed/fYGnEghKAKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div style="break-before: page; page-break-before: always;"></div><h1 id="dal-single-cycle"><a class="header" href="#dal-single-cycle">Dal Single-Cycle</a></h1>
+<iframe width="854" height="480" src="https://www.youtube.com/embed/fYGnEghKAKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h3 id="indice-2"><a class="header" href="#indice-2">Indice</a></h3>
+<ul>
+<li><a href="./3.1_dal_singlecycle.html">Dal Single-Cycle</a></li>
+<li><a href="./3.2_esercizi.html">Esercizi</a></li>
+<li><a href="./3.3_soluzioni.html">Soluzioni</a></li>
+<li><a href="./3.4_stages.html">Stages</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dal-single-cycle"><a class="header" href="#dal-single-cycle">Dal Single-Cycle</a></h1>
 <div class="p2p_container" id='screenshots/single_cycle_standard.png'></div>
 <table class="table">
   <thead>
@@ -835,6 +865,12 @@ sw a1 0(t2)
 <div style="break-before: page; page-break-before: always;"></div><h1 id="demos"><a class="header" href="#demos">Demos</a></h1>
 <p>Nelle prossime due sezioni finalmente si vedrà l'esecuzione dinamica di due semplici programmi su Ripes.</p>
 <p>Per aprire Ripes assicurarsi di aver letto le istruzioni di <a href="./0.1_setup.html">Setup</a> e le <a href="./0.2_informazioni_importanti.html">Informazioni Importanti</a> sulla Virtual Machine.</p>
+<h3 id="indice-3"><a class="header" href="#indice-3">Indice</a></h3>
+<ul>
+<li><a href="./4.1_simple_meaningless_program.html">Simple Meaningless Program</a></li>
+<li><a href="./4.2_towards_hazards.html">Towards Hazards</a></li>
+<li><a href="./4.3_assignments.html">Assignments</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="simple-meaningless-program"><a class="header" href="#simple-meaningless-program">Simple Meaningless Program</a></h1>
 <ul>
 <li>Processore di Ripes: <code>5-stage processor (w/o forwarding or hazard detection) Extended</code></li>

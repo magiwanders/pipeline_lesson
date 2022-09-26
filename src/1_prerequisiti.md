@@ -9,3 +9,14 @@ Per seguire con successo la lezione bisogna avere conoscenze adeguate su:
     - Register File (RF)
     - PC
     - ALU
+
+### Indice
+
+- [Esercizi](./1.1_esercizi.md)
+- [Soluzioni](./1.2_soluzioni.md)
+- [Altri Prerequisiti](./1.3_altri_prerequisiti.md)
+- [Registro](./1.4_registro.md)
+- [ROM](./1.5_rom.md)
+- [Register File](./1.6_register_file.md)
+- [PC](./1.7_pc.md)
+- [ALU](./1.8_alu.md)

@@ -21,36 +21,4 @@ for (circuit_name in circuits) {
     }
 }
 
-// var p2p_container = document.getElementById('p2p_container')
-// if (p2p_container!=undefined) {
-//     var image = new Image()
-//     image.src = p2p_container.title
-//     image.onload = function () { buildP2P(this, p2p_container) }
-// }
-
-async function load_p2p() {
-    const loadImage = path => {
-        return new Promise((resolve, reject) => {
-          const img = new Image()
-          img.crossOrigin = 'Anonymous' // to avoid CORS if used with Canvas
-          img.src = path
-          img.onload = () => {
-            resolve(img)
-          }
-          img.onerror = e => {
-            reject(e)
-          }
-        })
-      }
-    const p2p_containers = document.getElementsByClassName("p2p_container");
-    for (var i=0; i<p2p_containers.length; i++) {
-        console.log(i)
-        var p2p_container = p2p_containers.item(i)
-        await loadImage(p2p_container.id).then( (image) => {
-
-            buildP2P(image, p2p_container)
-        })
-    }
-}
-
-  load_p2p()
+p2pStart(document.getElementsByClassName("p2p_container"))

@@ -2,7 +2,14 @@ function _Object(type, attributes, children) {
     var element = document.createElement(type)
 
     for (key in attributes) {
-      element.setAttribute(key, attributes[key])
+        var attribute = attributes[key]
+      if (key=='style') {
+        for (style_key in attributes[key]) {
+            element.setAttribute
+        }
+      } else {
+      }
+      element.setAttribute(key, attribute)
     }
 
     if (children != undefined) {
@@ -39,3 +46,4 @@ function _h1(attributes, children) {return _Object('h1', attributes, children)}
 function _h2(attributes, children) {return _Object('h2', attributes, children)}
 function _h3(attributes, children) {return _Object('h3', attributes, children)}
 function _a(attributes, children) {return _Object('a', attributes, children)}
+function _canvas(attributes, children) {return _Object('canvas', attributes, children)}

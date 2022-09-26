@@ -149,6 +149,17 @@
 </ul>
 </li>
 </ul>
+<h2 id="software"><a class="header" href="#software">Software</a></h2>
+<p>Durante questa lezione verranno usati due tool:</p>
+<ul>
+<li><code>S.H.E.A.S. (Simple Hardware Editor and Simulator)</code> - Un simulatore di porte logiche disponibile anche <a href="https://sheas.magiwanders.com">online</a> ma che nella gran parte dei casi sarà embedded nelle pagine di questo sito.</li>
+<li><code>Ripes</code> - un simulatore di processori RISC-V.</li>
+</ul>
+<p>Più avanti nella lezione saranno disponibili dei tutorial di entrambi questi tool, in particolare:</p>
+<ul>
+<li>Tutorial di <code>S.H.E.A.S.</code> nella sezione <a href="./2_temporizzazione.html">Temporizzazione</a></li>
+<li>Tutorial di <code>Ripes</code> nella sezione <a href="./3_costruzione_pipeline.html">Costruzione Pipeline</a></li>
+</ul>
 
                     </main>
 
@@ -176,6 +187,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
@@ -188,6 +215,7 @@
 
         <!-- Custom JS scripts -->
         <script type="text/javascript" src="submodules/js_builds_html/html_builders.js"></script>
+        <script type="text/javascript" src="submodules/paint2pic/p2p.js"></script>
         <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/digitaljs_webpack_backup.js"></script>
         <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/lz-string_backup.js"></script>
         <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/sheas_functions.js"></script>

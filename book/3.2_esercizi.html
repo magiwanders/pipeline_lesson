@@ -137,7 +137,14 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="esercizi"><a class="header" href="#esercizi">Esercizi</a></h1>
-
+<ol>
+<li>Quanti e quali componenti sono visualizzati nella versione Extended del processore a singolo ciclo in più rispetto alla versione Standard? Dove si collocano negli stages e quali segnali rendono visibili?</li>
+</ol>
+<div class="p2p_container" id='screenshots/single_cycle_extended.png'></div>
+<details>
+    <summary>Se necessario, click qui per l'immagine del Single Cycle</summary>
+    <div class="p2p_container" id='screenshots/single_cycle_standard.png'></div>
+</details>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -164,6 +171,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
@@ -176,6 +199,7 @@
 
         <!-- Custom JS scripts -->
         <script type="text/javascript" src="submodules/js_builds_html/html_builders.js"></script>
+        <script type="text/javascript" src="submodules/paint2pic/p2p.js"></script>
         <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/digitaljs_webpack_backup.js"></script>
         <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/lz-string_backup.js"></script>
         <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/sheas_functions.js"></script>

@@ -4,3 +4,6 @@
 [submodule "submodules/simple_hardware_editor_and_simulator"]
 	path = submodules/simple_hardware_editor_and_simulator
 	url = https://github.com/magiwanders/simple_hardware_editor_and_simulator.git
+[submodule "submodules/paint2pic"]
+	path = submodules/paint2pic
+	url = https://github.com/magiwanders/paint2pic.git

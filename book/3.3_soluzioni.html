@@ -137,7 +137,14 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="soluzioni"><a class="header" href="#soluzioni">Soluzioni</a></h1>
-
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Stadio</th><th style="text-align: left">Quali componenti contiene lo stadio?</th><th style="text-align: left">Quali segnali arrivano da stadi successivi?</th><th style="text-align: left">Quali segnali escono verso quali stadi precedenti?</th><th style="text-align: left">Quali segnali vanno nel registro interstadio verso il prossimo stadio?</th></tr></thead><tbody>
+<tr><td style="text-align: left">IF</td><td style="text-align: left"><ul><li>PC</li><li>PC selector mux</li><li>PC+4 adder</li><li>Instruction memory</li></ul></td><td style="text-align: left"><ul><li>EX -&gt; ALU result</li><li>EX -&gt; PC selector</li></ul></td><td style="text-align: left">Non ci sono stadi precedenti</td><td style="text-align: left"><ul><li>Instruction -&gt; ID</li><li>PC -&gt; EX</li><li>PC+4 -&gt; WB</td></tr>
+<tr><td style="text-align: left">ID</td><td style="text-align: left"><ul><li>Decode</li><li>Register File</li><li>Immediate</li><li>Control</li></ul></td><td style="text-align: left"><ul><li>(ID) WB -&gt; Write Index</li><li>(ID) WB -&gt; Write Data</li><li>WB -&gt; RF Write Enable</li></ul></td><td style="text-align: left">/</td><td style="text-align: left"><ul><li>PC -&gt; EX</li><li>Immediate -&gt; EX</li><li>Reg1 -&gt; EX</li><li>Do Branch -&gt; EX</li><li>Do Jump -&gt; EX</li><li>ALU Op1 Select -&gt; EX</li><li>ALU Op2 Select -&gt; EX</li><li>ALU Operation -&gt; EX</li><li>Branch Operation -&gt; EX</li><li>Reg2 -&gt; EX, MEM</li><li>MEM Write Enable -&gt; MEM</li><li>MEM Read Enable -&gt; MEM</li><li>MEM Operation -&gt; MEM</li><li>PC+4 -&gt; WB</li><li>RF Write Index -&gt; WB</li><li>RF Write Enable -&gt; WB</li><li>Write Data Select -&gt; WB</li></ul></td></tr>
+<tr><td style="text-align: left">EX</td><td style="text-align: left"><ul><li>ALU</li><li>ALU Muxes</li><li>Branch Taken</li><li>j or (b and bt)</li></ul></td><td style="text-align: left">/</td><td style="text-align: left"><ul><li>ALU result -&gt; IF</li><li>PC selector -&gt; IF</li></ul></td><td style="text-align: left"><ul><li>Reg2 -&gt; MEM</li><li>MEM Write Enable -&gt; MEM</li><li>MEM Read Enable -&gt; MEM</li><li>MEM Operation -&gt; MEM</li><li>ALUres-&gt;MEM,WB</li><li>PC+4 -&gt; WB</li><li>RF Write Index -&gt; WB</li><li>RF Write Enable -&gt; WB</li><li>Write Data Select -&gt; WB</li></ul></td></tr>
+<tr><td style="text-align: left">MEM</td><td style="text-align: left">Data Memory</td><td style="text-align: left">/</td><td style="text-align: left">/</td><td style="text-align: left"><ul><li>PC+4 -&gt; WB</li><li>ALUres-&gt;WB</li><li>Data Out -&gt; WB</li><li>RF Write Index -&gt; WB</li><li>RF Write Enable -&gt; WB</li><li>Write Data Select -&gt; WB</li></ul></td></tr>
+<tr><td style="text-align: left">WB</td><td style="text-align: left">RegWr select Mux</td><td style="text-align: left">Non ci sono stadi successivi</td><td style="text-align: left"><ul><li>RF Write Index -&gt; ID</li><li>RF Write Data -&gt; ID</li><li>RF Write Enable -&gt; ID</li></ul></td><td style="text-align: left">Non ci sono stadi successivi</td></tr>
+</tbody></table>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -164,6 +171,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
@@ -176,6 +199,7 @@
 
         <!-- Custom JS scripts -->
         <script type="text/javascript" src="submodules/js_builds_html/html_builders.js"></script>
+        <script type="text/javascript" src="submodules/paint2pic/p2p.js"></script>
         <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/digitaljs_webpack_backup.js"></script>
         <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/lz-string_backup.js"></script>
         <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/sheas_functions.js"></script>

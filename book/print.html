@@ -205,6 +205,17 @@
 </ul>
 </li>
 </ul>
+<h2 id="software"><a class="header" href="#software">Software</a></h2>
+<p>Durante questa lezione verranno usati due tool:</p>
+<ul>
+<li><code>S.H.E.A.S. (Simple Hardware Editor and Simulator)</code> - Un simulatore di porte logiche disponibile anche <a href="https://sheas.magiwanders.com">online</a> ma che nella gran parte dei casi sarà embedded nelle pagine di questo sito.</li>
+<li><code>Ripes</code> - un simulatore di processori RISC-V.</li>
+</ul>
+<p>Più avanti nella lezione saranno disponibili dei tutorial di entrambi questi tool, in particolare:</p>
+<ul>
+<li>Tutorial di <code>S.H.E.A.S.</code> nella sezione <a href="./2_temporizzazione.html">Temporizzazione</a></li>
+<li>Tutorial di <code>Ripes</code> nella sezione <a href="./3_costruzione_pipeline.html">Costruzione Pipeline</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="informazioni-importanti-sulla-macchina-virtuale"><a class="header" href="#informazioni-importanti-sulla-macchina-virtuale">Informazioni importanti sulla macchina virtuale</a></h2>
 <p>Seguono una serie di informazioni non strettamente necessarie per la lezione, ma che potrebbero essere utili per utilizzare la virtual machine:</p>
 <p><strong>Alcune finestre di Ripes, come quella del Pipeline Diagram, NON hanno il bottone 'x' per chiuderle. Usare 'Esc' sulla tastiera.</strong></p>
@@ -418,7 +429,7 @@
 <div id="sheas_container_pc"><div style="width:100%; height:100%"><div class="loader"></div></div></div><div style="break-before: page; page-break-before: always;"></div><h1 id="alu"><a class="header" href="#alu">ALU</a></h1>
 <p>Circuito interattivo di una ALU 32 bit (design di <a href="https://github.com/tilk">Marek Materzok</a>). Notare che il design è puramente funzionale, non scende nel livello di dettaglio delle porte logiche.</p>
 <div id="sheas_container_alu"><div style="width:100%; height:100%"><div class="loader"></div></div></div>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="temporizzazione"><a class="header" href="#temporizzazione">Temporizzazione</a></h1>
 <iframe width="854" height="480" src="https://www.youtube.com/embed/CUn9LVzQL0g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ritardo-di-propagazione"><a class="header" href="#ritardo-di-propagazione">Ritardo di Propagazione</a></h1>
 <p>In questa parte della lezione si ricorda che le porte logiche studiate finora &quot;calcolano&quot; il proprio output con un certo ritardo di propagazione, e si studiano le conseguenze che questo ha sulla frequenza di clock di un processore.</p>
@@ -740,10 +751,80 @@
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="costruzione-pipeline"><a class="header" href="#costruzione-pipeline">Costruzione Pipeline</a></h1>
 <iframe width="854" height="480" src="https://www.youtube.com/embed/fYGnEghKAKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div style="break-before: page; page-break-before: always;"></div><h1 id="dal-single-cycle"><a class="header" href="#dal-single-cycle">Dal Single-Cycle</a></h1>
-<p><img src="screenshots/single_cycle_standard.png" alt="Single Cycle" /></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="esercizi-2"><a class="header" href="#esercizi-2">Esercizi</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="soluzioni-2"><a class="header" href="#soluzioni-2">Soluzioni</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="if"><a class="header" href="#if">IF</a></h1>
+<div class="p2p_container" id='screenshots/single_cycle_standard.png'></div>
+<table class="table">
+  <thead>
+    <tr>
+        <th>Stadio</th>
+        <th>Quali componenti contiene lo stadio?</th>
+        <th>Quali segnali arrivano da stadi successivi?</th>
+        <th>Quali segnali escono verso quali stadi precedenti?</th>
+        <th>Quali segnali vanno nel registro interstadio verso il prossimo stadio?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>IF</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.1.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.1.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.1.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.1.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.2.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.2.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.2.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.2.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+    <tr>
+      <th>EX</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.3.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.3.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.3.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.3.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+    <tr>
+      <th>MEM</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.4.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.4.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.4.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.4.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+    <tr>
+      <th>WB</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.5.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.5.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.5.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.5.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+  </tbody>
+</table>
+<script>
+    for (var i=1; i<6; i++) {
+        for (var j=1; j<5; j++) {
+            var id = '3.1.' + i + '.' + j
+            document.getElementById(id).value = localStorage.getItem(id)
+        }
+    }
+    function save_table(e) {localStorage.setItem(e.target.id, document.getElementById(e.target.id).value) }
+</script><div style="break-before: page; page-break-before: always;"></div><h1 id="esercizi-2"><a class="header" href="#esercizi-2">Esercizi</a></h1>
+<ol>
+<li>Quanti e quali componenti sono visualizzati nella versione Extended del processore a singolo ciclo in più rispetto alla versione Standard? Dove si collocano negli stages e quali segnali rendono visibili?</li>
+</ol>
+<div class="p2p_container" id='screenshots/single_cycle_extended.png'></div>
+<details>
+    <summary>Se necessario, click qui per l'immagine del Single Cycle</summary>
+    <div class="p2p_container" id='screenshots/single_cycle_standard.png'></div>
+</details><div style="break-before: page; page-break-before: always;"></div><h1 id="soluzioni-2"><a class="header" href="#soluzioni-2">Soluzioni</a></h1>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Stadio</th><th style="text-align: left">Quali componenti contiene lo stadio?</th><th style="text-align: left">Quali segnali arrivano da stadi successivi?</th><th style="text-align: left">Quali segnali escono verso quali stadi precedenti?</th><th style="text-align: left">Quali segnali vanno nel registro interstadio verso il prossimo stadio?</th></tr></thead><tbody>
+<tr><td style="text-align: left">IF</td><td style="text-align: left"><ul><li>PC</li><li>PC selector mux</li><li>PC+4 adder</li><li>Instruction memory</li></ul></td><td style="text-align: left"><ul><li>EX -&gt; ALU result</li><li>EX -&gt; PC selector</li></ul></td><td style="text-align: left">Non ci sono stadi precedenti</td><td style="text-align: left"><ul><li>Instruction -&gt; ID</li><li>PC -&gt; EX</li><li>PC+4 -&gt; WB</td></tr>
+<tr><td style="text-align: left">ID</td><td style="text-align: left"><ul><li>Decode</li><li>Register File</li><li>Immediate</li><li>Control</li></ul></td><td style="text-align: left"><ul><li>(ID) WB -&gt; Write Index</li><li>(ID) WB -&gt; Write Data</li><li>WB -&gt; RF Write Enable</li></ul></td><td style="text-align: left">/</td><td style="text-align: left"><ul><li>PC -&gt; EX</li><li>Immediate -&gt; EX</li><li>Reg1 -&gt; EX</li><li>Do Branch -&gt; EX</li><li>Do Jump -&gt; EX</li><li>ALU Op1 Select -&gt; EX</li><li>ALU Op2 Select -&gt; EX</li><li>ALU Operation -&gt; EX</li><li>Branch Operation -&gt; EX</li><li>Reg2 -&gt; EX, MEM</li><li>MEM Write Enable -&gt; MEM</li><li>MEM Read Enable -&gt; MEM</li><li>MEM Operation -&gt; MEM</li><li>PC+4 -&gt; WB</li><li>RF Write Index -&gt; WB</li><li>RF Write Enable -&gt; WB</li><li>Write Data Select -&gt; WB</li></ul></td></tr>
+<tr><td style="text-align: left">EX</td><td style="text-align: left"><ul><li>ALU</li><li>ALU Muxes</li><li>Branch Taken</li><li>j or (b and bt)</li></ul></td><td style="text-align: left">/</td><td style="text-align: left"><ul><li>ALU result -&gt; IF</li><li>PC selector -&gt; IF</li></ul></td><td style="text-align: left"><ul><li>Reg2 -&gt; MEM</li><li>MEM Write Enable -&gt; MEM</li><li>MEM Read Enable -&gt; MEM</li><li>MEM Operation -&gt; MEM</li><li>ALUres-&gt;MEM,WB</li><li>PC+4 -&gt; WB</li><li>RF Write Index -&gt; WB</li><li>RF Write Enable -&gt; WB</li><li>Write Data Select -&gt; WB</li></ul></td></tr>
+<tr><td style="text-align: left">MEM</td><td style="text-align: left">Data Memory</td><td style="text-align: left">/</td><td style="text-align: left">/</td><td style="text-align: left"><ul><li>PC+4 -&gt; WB</li><li>ALUres-&gt;WB</li><li>Data Out -&gt; WB</li><li>RF Write Index -&gt; WB</li><li>RF Write Enable -&gt; WB</li><li>Write Data Select -&gt; WB</li></ul></td></tr>
+<tr><td style="text-align: left">WB</td><td style="text-align: left">RegWr select Mux</td><td style="text-align: left">Non ci sono stadi successivi</td><td style="text-align: left"><ul><li>RF Write Index -&gt; ID</li><li>RF Write Data -&gt; ID</li><li>RF Write Enable -&gt; ID</li></ul></td><td style="text-align: left">Non ci sono stadi successivi</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="if"><a class="header" href="#if">IF</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="id"><a class="header" href="#id">ID</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ex"><a class="header" href="#ex">EX</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mem"><a class="header" href="#mem">MEM</a></h1>
@@ -776,6 +857,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
@@ -788,6 +885,7 @@
 
         <!-- Custom JS scripts -->
         <script type="text/javascript" src="submodules/js_builds_html/html_builders.js"></script>
+        <script type="text/javascript" src="submodules/paint2pic/p2p.js"></script>
         <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/digitaljs_webpack_backup.js"></script>
         <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/lz-string_backup.js"></script>
         <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/sheas_functions.js"></script>

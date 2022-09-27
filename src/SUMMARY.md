@@ -3,6 +3,7 @@
 - [Overview](./0_overview.md)
     - [Setup](./0.1_setup.md)
     - [Informazioni Importanti](./0.2_informazioni_importanti.md)
+    - [Pre-test](./0.3_pretest.md)
 - [Prerequisiti](./1_prerequisiti.md)
     - [Esercizi](./1.1_esercizi.md)
     - [Soluzioni](./1.2_soluzioni.md)
@@ -31,3 +32,4 @@
     - [Towards Hazards](./4.2_towards_hazards.md)
     - [Assignments](./4.3_assignments.md)
 - [Appendice](./5_appendice.md)
+    - [Post-test](./5.1_posttest.md)

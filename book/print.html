@@ -840,6 +840,63 @@
 <li>Quanti e quali componenti sono visualizzati nella versione Extended del processore a singolo ciclo in più rispetto alla versione Standard? Dove si collocano negli stages e quali segnali rendono visibili?</li>
 </ol>
 <div class="p2p_container" id='screenshots/single_cycle_extended.png'></div>
+<table class="table">
+  <thead>
+    <tr>
+        <th>Stadio</th>
+        <th>Quali componenti contiene lo stadio?</th>
+        <th>Quali segnali arrivano da stadi successivi?</th>
+        <th>Quali segnali escono verso quali stadi precedenti?</th>
+        <th>Quali segnali vanno nel registro interstadio verso il prossimo stadio?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>IF</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.1.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.1.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.1.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.1.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.2.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.2.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.2.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.2.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+    <tr>
+      <th>EX</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.3.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.3.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.3.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.3.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+    <tr>
+      <th>MEM</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.4.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.4.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.4.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.4.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+    <tr>
+      <th>WB</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.5.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.5.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.5.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.5.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+  </tbody>
+</table>
+<script>
+    for (var i=1; i<6; i++) {
+        for (var j=1; j<5; j++) {
+            var id = '3.1.' + i + '.' + j
+            document.getElementById(id).value = localStorage.getItem(id)
+        }
+    }
+    function save_table(e) {localStorage.setItem(e.target.id, document.getElementById(e.target.id).value) }
+</script>
 <details>
     <summary>Se necessario, click qui per l'immagine del Single Cycle</summary>
     <div class="p2p_container" id='screenshots/single_cycle_standard.png'></div>
@@ -854,14 +911,14 @@
 </tbody></table>
 </div><div style="break-before: page; page-break-before: always;"></div><h1 id="stages"><a class="header" href="#stages">Stages</a></h1>
 <p>In questa parte della lezione si espone come ogni stadio viene attivato da ogni tipo di istruzione. Per farlo viene utilizzato una semplice serie di istruzioni scollegate tra loro:</p>
-<pre><code class="language-nasm">jal a5 30
-lui a5 30
+<pre><code class="language-nasm">lui a5 30
 addi sp, s0, 4
 srai sp, s0, 4
 sub ra, sp, gp
 blt x12 x10 -12
 lw a1 0(t2)
 sw a1 0(t2)
+jal a5 30
 </code></pre>
 <p>Per la simulazione verrà utilizzato Ripes.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="demos"><a class="header" href="#demos">Demos</a></h1>

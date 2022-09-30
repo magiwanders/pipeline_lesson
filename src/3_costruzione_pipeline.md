@@ -4,8 +4,8 @@
 
 ### Indice
 
-- [Dal Single-Cycle](./3.1_dal_singlecycle.md)
-- [Esercizi](./3.2_esercizi.md)
+- [Dal Single-Cycle](./3.1_from_singlecycle.md)
+- [Esercizi](./3.2_exercises.md)
 - [Soluzioni](./3.3_soluzioni.md)
 - [Stages](./3.4_stages.md)
 

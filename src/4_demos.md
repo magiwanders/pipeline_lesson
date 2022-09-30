@@ -1,8 +1,8 @@
 # Demos
 
-Nelle prossime due sezioni finalmente si vedrà l'esecuzione dinamica di due semplici programmi su Ripes.
+Finally, in the next two sessions we will see the dynamic execution of two simple assembly programs on Ripes.
 
-Per aprire Ripes assicurarsi di aver letto le istruzioni di [Setup](./0.1_setup.md) e le [Informazioni Importanti](./0.2_informazioni_importanti.md) sulla Virtual Machine.
+Make sure you have read [Setup](./0.1_setup.md) and[Important Info](./0.2_important_info.md) in order to use the Ripes virtual machine properly.
 
 ### Indice
 

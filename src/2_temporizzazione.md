@@ -12,3 +12,28 @@
 - [Pipeline](./2.6_pipeline.md)
 - [Esercizi](./2.7_esercizi.md)
 - [Soluzioni](./2.8_soluzioni.md)
+
+## TRASNCRIPT
+
+This is a basic tutorial for SHEAS one point one, a tool based on the DigitalJS open source logic simulation engine, originally created for visualizing and simulating verilog code by Marek Materzock. 
+
+SHEAS stands for Simple Hardware Editor And Simulator, and it provides DigitalJS with a basic interface that allows for completely code-free hardware modification and simulation, and in a near future, testing too. 
+
+SHEAS is open source too, and a live running page can be found at sheas.magiwanders.com.
+
+Components are chosen from the dropdown and added to the simulation. The base components are buttons for inputs, lamps for outputs, and nand ports for synthesizing logic. Each of these has a 'bits' attribute which describes the width of their ports. More components are available in the dropdown and new ones are constantly added. 
+
+In the Visualization Window, components are moved by drag and drop and connected by dragging and dropping, from the output of one to the input of the other. If any glitch happens, the visualization can at any point be reloaded.
+
+The simulation is already running by default, and at any point, clicking the blue looking glass that appears upon hovering each wire will activate a signal monitor below. To see the details, like the exact delay between signal activations, the simulation can be paused and forwarded step by step, while the signal monitors can be zoomed in and out, and navigated horizontally to the left or to the right. 
+
+Any component can be renamed. Any component can also be removed by name.
+No two components can have the same name, the page will output an error if trying to rename one to an already existing name.
+
+At any point, the circuit can be saved for later retrieval, and the simulation can be reset.
+
+Saved circuits are retrieved either as they were saved, with the load button, or as black boxes, with the add button. The black box can be used as any other component, and its internal ports can be accessed with the looking glass icon that appears upon hovering it.
+
+At any point the current circuit can be shared by clicking the 'share circuit as link' button and pasting the link into another window. Mind that due to the limitations on the URL length, this only works for all but the biggest circuits. Alternatively, clicking the 'share only the chip' button will copy the chip in the clipboard. In another window, the chip can be retrieved with the dropdown option 'Circuit from Clipboard'.  This works with much bigger circuits.
+
+That is all, thank you.

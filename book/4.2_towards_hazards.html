@@ -139,10 +139,10 @@
                         <h1 id="towards-hazards"><a class="header" href="#towards-hazards">Towards Hazards</a></h1>
 <ul>
 <li>
-<p>Processore di Ripes: <code>5-stage processor (w/o forwarding or hazard detection) Extended</code></p>
+<p>Ripes Processor: <code>5-stage processor (w/o forwarding or hazard detection) Extended</code></p>
 </li>
 <li>
-<p>Registri da Inizializzare:</p>
+<p>Registers to Initialize:</p>
 <ul>
 <li><code>t1 = 0x123</code></li>
 <li><code>t2 = 0xbc</code></li>
@@ -150,7 +150,7 @@
 </ul>
 </li>
 <li>
-<p>Programma:</p>
+<p>Program:</p>
 </li>
 </ul>
 <pre><code class="language-assembly">sw t1 0(t2)         # M[oxbc] = 0x123
@@ -158,9 +158,31 @@ LOOP:
    lw a1 0(t2)      # a1 = M[0xbc] 
    add a2 a1 a1     # a2 = a1+a1
    sw a2 0(t2)      # M[0xbc] = a2
-   addi a1 x0 0     # a1 = 0
    blt a2 a0 LOOP   #jumpif a2&lt;a0
 </code></pre>
+<h2 id="transcript"><a class="header" href="#transcript">Transcript</a></h2>
+<p>Now onto the next demo.</p>
+<p>Load the 5 stage processor without forwarding or hazard detection with the extended layout. This is the same processor as the last demo.</p>
+<p>Initialise register t1 to the value 0x123, t2 to the value 0xbc, a0 to the value 0x00000fff.</p>
+<p>Copy and paste the program below in Ripes' Editor tab.</p>
+<p>Let us first understand what the program does. The first instruction loads the value of t1 into the memory cell with address &quot;bc&quot;, which unlike the last program is addressed with a register instead of with an offset. The second instruction loads such value into the register a1. The next instruction sets a2 to two times a1 and then the program stores this value in the same memory cell as before. Then the program jumps to the start of the loop if a2 is less than a0. Basically, the program doubles the value inside a2 at each loop execution until it becomes greater than a0 and it stops. By changing the initialization of a0 we can control how long the program will run (bigger a0 means it runs for more cycles).</p>
+<p>Onto the program, let us focus mainly on the fetch stage.</p>
+<p>Cycle zero to cycle two.</p>
+<p>In the fetch stage, both the first and second instructions need registers which were initialised, x6 and x7, or t1 and t2. We can verify their values. Let us also keep in mind that the load instruction will write the value that it retrieves from memory to the register file in the write back stage, which means in cycle five.</p>
+<p>Cycle three.</p>
+<p>From the analysis of the assembly code, we saw that the add instruction, which is now in the fetch stage, uses the value of a1, or x11, that is supposed to be set by the load instruction as 0x123. However, we can see that the value being retrieved for the address 0x0b, which is x11, is zero. That is because, as we were saying for the previous cycle, the load instruction will write the a1 register in cycle five, that is in two cycles. By then the add instruction will be in the memory stage and cannot use the alu anymore to calculate its sum. </p>
+<p>Imagine being the engineers that invented the pipeline. You just subdivided the execution of instruction into 5 stages, which execute each in less time with respect to the full activation of the processor. This lets you process more instructions in the same amount of time, mainly because the execution of each happens in parallel to that of four other instructions at any given time. However, this also means that each instruction begins its execution when two or three other instructions are still not completely executed, which is the same as to say that any register that is modified by a given instruction is not actually modified until at least three cycles later. So what if, as in this case with the register a1, the instruction that immediately follows the load needs the loaded value? More in general, given any instruction that modifies the value of a register, what if an instruction immediately after needs to use the new value of that register?
+If the problem propagates, it means that execution will contain errors and it cannot be continued. </p>
+<p>In cycle five we see that the result of the alu is zero and not the expected 0x246, because the values of the registers were retrieved as zero instead of the expected 0x123. This means that the value that will be written to the a2 register will be zero, which is wrong.</p>
+<p>The answer to the question is therefore that no, the execution cannot be continued as the current implementation of the pipeline leads to errors.</p>
+<p>How to solve problems like this will be the topic of the next lesson, and as assignment you will be asked to analyse another assembly program that contains a slightly different type of error and write a small report detailing how you found it much in the same way in which we have commented on the last two programs.</p>
+<p>You will also be asked to speculate a solution, based on the following part of the lesson (and, if you want some spoilers, by trying to understand how the other three pipelined processors available in Ripes solve the problem. Mind that this is not strictly necessary as those processors will be the main topic of the next lesson) .</p>
+<p>Back to our problem, hopefully you have now understood the need for some tweaks to the current pipeline hardware. Let us then try to understand intuitively how this can be solved, which again will be the topic of the next lesson. </p>
+<p>In this particular case, the load instruction is writing back to the register file the value 0x123 in cycle five, while the following instruction, the add, uses it in cycle five. This kind of occurrence is called a hazard (or more precisely a dependence, which is a possible hazard). There are two ways to make sure that the add can retrieve that value. </p>
+<p>The first way is to make sure that the add instruction is in the fetch stage at cycle five. This implies &quot;stalling&quot; it there for two cycles, by disabling the IDEX interstage resgister, while the load continues executing. This also implies that all instructions after the add instruction will be stalled, as if in a cue. Naturally, there would be the need of a chip that detects such occurrences, called a Hazard Detection Unit.</p>
+<p>Another way is to pinpoint where exactly the value that the load instruction is going to write to its destination register is ready, or where it is really needed. In our case, the value is ready as soon as it is retrieved for memory, in the memory stage, which is one cycle before the original case. At the same time, the value is retrieved in the decode stage but it is not needed there, it is only needed for the alu in the execution stage, that is one cycle after the original case. It is possible to forward the needed value from a point of the pipeline to another inorder to minimise the stall cycles of an instruction that is waiting for a value to be ready. This means in our case to forward the value 0x123 from the write back stage directly to the execution stage, so that the add instruction must only wait for one cycles instead of two.</p>
+<p>In the next lesson we will see exactly how to generalise this.</p>
+<p>In the meanwhile good luck with your work.</p>
 
                     </main>
 

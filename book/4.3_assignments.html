@@ -138,76 +138,76 @@
                     <main>
                         <h1 id="assignments"><a class="header" href="#assignments">Assignments</a></h1>
 <ol>
-<li>Simulare la variante dell'ultimo esercizio visto a lezione (vedi sotto). Anche questa variante evidenzia dei limiti della pipeline: quali sono però le differenze con l'esercizio originale?</li>
+<li>Simulate the program below in a similar way to the previous lesson. Write a small report (~1 page) in which you describe what execution error you found and how you recognized it, together with what the consequence on the execution of the whole program is. Comment what the assembly does before simulating it and specify any signal that you reckon holds the wrong value and specify why it should hold the value you think is correct. Try to describe what is similar and what differs with the execution error found in the program of the previous lesson. Finally, describe how this error could be solved by using stalls or forwarding values between stages. Do not be afraid to speculate or get this last point wrong, the topic of the next lesson will be exactly this.</li>
 </ol>
 <ul>
-<li>REGISTRI DA INIZIALIZZARE```
+<li>
+<p>Ripes Processor: <code>5-stage processor (w/o forwarding or hazard detection) Extended</code></p>
+</li>
+<li>
+<p>Registers to Initialize:</p>
 <ul>
 <li><code>t1 = 0x123</code></li>
-<li><code>t2 = 0xbc</code></li>
-<li><code>a0 = 0x000000fff</code></li>
+<li><code>a0 = 0x00000fff</code></li>
 </ul>
 </li>
-<li>ASSEMBLY</li>
+<li>
+<p>Program:</p>
+</li>
 </ul>
-<pre><code class="language-assembly">sw t1 0(t2) # M[oxbc] = 0x123
-LOOP:
-lw a1 0(t2) # a1 = M[0xbc]
-add a2 a1 a1 # a2 = a1+a1
-bgt a2 a0 16 #jumpif a2&gt;a0
-sw a2 0(t2) # M[0xbc] = a2
-j LOOP
-END:
+<pre><code class="language-assembly">LOOP:
+    add t1 t1 t1 # a2 = t1+t1
+    bgt t1 a0 20 #jumpif t1&gt;a0
+    add a1 t1 t1 # a1 = t1+t1
+    sub a2 t1 t1 # a2 = t1-t1
+    j LOOP
 </code></pre>
-<ol start="2">
-<li>A COPPIE: la prima persona sceglie uno stage qualunque e un programma tra gli esempi sotto, e &quot;gioca&quot; nel ruolo di tale stage, mente la seconda nel ruolo dello stage successivo. Seguendo come reference la tabella della sezione <a href="./3.3_soluzioni.html">4.3</a> la prima persona calcola e comunica alla seconda i dati relativi al proprio stage (ultima colonna della tabella), la seconda deve dedurre che istruzione sta nello stage precedente e calcolare di conseguenza i dati relativi al proprio stage nel prossimo ciclo. Ci si corregge con il simulatore, idealmente operato dalla prima persona. Dopo qualche istruzione ci si inverte. Questo esercizio è utile in quanto simile a uno degli esercizi d'esame.</li>
-</ol>
-<ul>
-<li>ESEMPIO:
-<ul>
-<li>PERSONA 1 sceglie il primo programma tra quelli sotto e lo stage MEM. I dati che passa al collega sono:
-<ul>
-<li>PC+4 -&gt; 0xc</li>
-<li>ALUres-&gt; 0x20</li>
-<li>Data Out -&gt; 0x0</li>
-<li>RF Write Index -&gt; 0x0</li>
-<li>RF Write Enable -&gt; 0x0</li>
-<li>Write Data Select -&gt; 0x1</li>
-</ul>
-</li>
-<li>PERSONA 2 riconosce che la prima istruzione nello stage MEM è lo store e calcola i propri dati al prossimo ciclo.
-<ul>
-<li>RF Write Index -&gt; 0x0</li>
-<li>RF Write Data -&gt; 0x20</li>
-<li>RF Write Enable -&gt; 0x0</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="esempi-di-programmi-dallinternet"><a class="header" href="#esempi-di-programmi-dallinternet">Esempi di programmi dall'internet</a></h2>
-<pre><code class="language-assembly">addi x2, x0, 1
+<!-- 2. A COPPIE: la prima persona sceglie uno stage qualunque e un programma tra gli esempi sotto, e "gioca" nel ruolo di tale stage, mente la seconda nel ruolo dello stage successivo. Seguendo come reference la tabella della sezione [4.3](./3.3_soluzioni.md) la prima persona calcola e comunica alla seconda i dati relativi al proprio stage (ultima colonna della tabella), la seconda deve dedurre che istruzione sta nello stage precedente e calcolare di conseguenza i dati relativi al proprio stage nel prossimo ciclo. Ci si corregge con il simulatore, idealmente operato dalla prima persona. Dopo qualche istruzione ci si inverte. Questo esercizio è utile in quanto simile a uno degli esercizi d'esame.
+- ESEMPIO:
+    - PERSONA 1 sceglie il primo programma tra quelli sotto e lo stage MEM. I dati che passa al collega sono:
+        - PC+4 -> 0xc
+        - ALUres-> 0x20
+        - Data Out -> 0x0
+        - RF Write Index -> 0x0
+        - RF Write Enable -> 0x0
+        - Write Data Select -> 0x1
+    - PERSONA 2 riconosce che la prima istruzione nello stage MEM è lo store e calcola i propri dati al prossimo ciclo.
+        - RF Write Index -> 0x0
+        - RF Write Data -> 0x20
+        - RF Write Enable -> 0x0
+
+
+## Esempi di programmi dall'internet
+
+```assembly
+addi x2, x0, 1
 
 loop:
   sub x1, x1, x2
   sw  x1, 4(x0)
   blt x0, x1, loop
-</code></pre>
-<pre><code class="language-assembly"> addi x5,x0,0x11        # set x5 to 0x11
+```
+
+```assembly
+ addi x5,x0,0x11        # set x5 to 0x11
   sw x5, 0x100(x0)       # store at address 0x100
   lw x6, 0x100(x0)       # get from mem
   addi x6,x6,1          
   sw x6, 0x104(x0)       # store to mem 0x104
-</code></pre>
-<pre><code class="language-assembly">   addi x3,x0,0    # i = 0
+```
+
+```assembly
+   addi x3,x0,0    # i = 0
    addi x4,x0,10   # const 10
 loop:
    bge  x3,x4, exit
    addi x3,x3,1
    j loop
 exit:
-</code></pre>
-<pre><code class="language-assembly">  addi x3,x0,0       #  s = 0
+```
+
+```assembly
+  addi x3,x0,0       #  s = 0
   addi x4,x0,0       #  i = 0
   addi x5,x0,5       #  const 5
   addi x6,x0,0x100   #  base address of ax[]
@@ -221,7 +221,7 @@ loop:
   addi x4, x4, 1    # increment index
   j loop
 exit:
-</code></pre>
+``` -->
 
                     </main>
 

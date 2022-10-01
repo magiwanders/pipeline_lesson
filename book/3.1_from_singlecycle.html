@@ -1,0 +1,269 @@
+<!DOCTYPE HTML>
+<html lang="it" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>From Single-Cycle - Introduzione al Pipelining</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="scrollbar.css">
+        <link rel="stylesheet" href="loader.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="0_overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="0.1_setup.html"><strong aria-hidden="true">1.1.</strong> Setup</a></li><li class="chapter-item expanded "><a href="0.2_important_info.html"><strong aria-hidden="true">1.2.</strong> Important Info</a></li><li class="chapter-item expanded "><a href="0.3_pretest.html"><strong aria-hidden="true">1.3.</strong> Pre-test</a></li></ol></li><li class="chapter-item expanded "><a href="1_prerequisiti.html"><strong aria-hidden="true">2.</strong> Prerequisiti</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.1_esercizi.html"><strong aria-hidden="true">2.1.</strong> Esercizi</a></li><li class="chapter-item expanded "><a href="1.2_soluzioni.html"><strong aria-hidden="true">2.2.</strong> Soluzioni</a></li><li class="chapter-item expanded "><a href="1.3_altri_prerequisiti.html"><strong aria-hidden="true">2.3.</strong> Altri Prerequisiti</a></li><li class="chapter-item expanded "><a href="1.4_registro.html"><strong aria-hidden="true">2.4.</strong> Registro</a></li><li class="chapter-item expanded "><a href="1.5_rom.html"><strong aria-hidden="true">2.5.</strong> ROM</a></li><li class="chapter-item expanded "><a href="1.6_register_file.html"><strong aria-hidden="true">2.6.</strong> Register File</a></li><li class="chapter-item expanded "><a href="1.7_pc.html"><strong aria-hidden="true">2.7.</strong> PC</a></li><li class="chapter-item expanded "><a href="1.8_alu.html"><strong aria-hidden="true">2.8.</strong> ALU</a></li></ol></li><li class="chapter-item expanded "><a href="2_temporizzazione.html"><strong aria-hidden="true">3.</strong> Temporizzazione (Tutorial SHEAS)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2.1_ritardo_di_propagazione.html"><strong aria-hidden="true">3.1.</strong> Ritardo di Propagazione</a></li><li class="chapter-item expanded "><a href="2.2_rtl.html"><strong aria-hidden="true">3.2.</strong> RTL</a></li><li class="chapter-item expanded "><a href="2.3_esercizi.html"><strong aria-hidden="true">3.3.</strong> Esercizi</a></li><li class="chapter-item expanded "><a href="2.4_soluzioni.html"><strong aria-hidden="true">3.4.</strong> Soluzioni</a></li><li class="chapter-item expanded "><a href="2.5_diagramma_rtl.html"><strong aria-hidden="true">3.5.</strong> Diagramma RTL</a></li><li class="chapter-item expanded "><a href="2.6_pipeline.html"><strong aria-hidden="true">3.6.</strong> Pipeline</a></li><li class="chapter-item expanded "><a href="2.7_esercizi.html"><strong aria-hidden="true">3.7.</strong> Esercizi</a></li><li class="chapter-item expanded "><a href="2.8_soluzioni.html"><strong aria-hidden="true">3.8.</strong> Soluzioni</a></li></ol></li><li class="chapter-item expanded "><a href="3_costruzione_pipeline.html"><strong aria-hidden="true">4.</strong> Pipeline Building (Tutorial Ripes)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="3.1_from_singlecycle.html" class="active"><strong aria-hidden="true">4.1.</strong> From Single-Cycle</a></li><li class="chapter-item expanded "><a href="3.2_exercises.html"><strong aria-hidden="true">4.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="3.3_soluzioni.html"><strong aria-hidden="true">4.3.</strong> Soluzioni</a></li><li class="chapter-item expanded "><a href="3.4_stages.html"><strong aria-hidden="true">4.4.</strong> Stages</a></li></ol></li><li class="chapter-item expanded "><a href="4_demos.html"><strong aria-hidden="true">5.</strong> Demos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4.1_simple_meaningless_program.html"><strong aria-hidden="true">5.1.</strong> Simple Meaningless Program</a></li><li class="chapter-item expanded "><a href="4.2_towards_hazards.html"><strong aria-hidden="true">5.2.</strong> Towards Hazards</a></li><li class="chapter-item expanded "><a href="4.3_assignments.html"><strong aria-hidden="true">5.3.</strong> Assignments</a></li></ol></li><li class="chapter-item expanded "><a href="5_appendix.html"><strong aria-hidden="true">6.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="5.1_posttest.html"><strong aria-hidden="true">6.1.</strong> Post-test</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Introduzione al Pipelining</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="from-single-cycle"><a class="header" href="#from-single-cycle">From Single-Cycle</a></h1>
+<div class="p2p_container" id='screenshots/single_cycle_standard.png'></div>
+<table class="table">
+  <thead>
+    <tr>
+        <th>Stage</th>
+        <th>Which component are in this stage?</th>
+        <th>Which signals come from the following stages?</th>
+        <th>Which signals go towards previous stages?</th>
+        <th>Which signals go into the interstage register towards the next stage?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>IF</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.1.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.1.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.1.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.1.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.2.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.2.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.2.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.2.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+    <tr>
+      <th>EX</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.3.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.3.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.3.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.3.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+    <tr>
+      <th>MEM</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.4.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.4.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.4.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.4.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+    <tr>
+      <th>WB</th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.5.1' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.5.2' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.5.3' onchange="save_table(event)"></textarea></div></th>
+      <th><div><textarea cols=15 rows=5 type="text" id='3.1.5.4' onchange="save_table(event)"></textarea></div></th>
+    </tr>
+  </tbody>
+</table>
+<script>
+    for (var i=1; i<6; i++) {
+        for (var j=1; j<5; j++) {
+            var id = '3.1.' + i + '.' + j
+            document.getElementById(id).value = localStorage.getItem(id)
+        }
+    }
+    function save_table(e) {localStorage.setItem(e.target.id, document.getElementById(e.target.id).value) }
+</script>
+<h2 id="transcript"><a class="header" href="#transcript">Transcript</a></h2>
+<p>It is now the time to build the actual pipelined processor. As we anticipated during the last part of the lesson, the point is to divide the components of the processor by function and to divide the clusters with registers. Let us then start with a quick high level recap of the flow of the instruction in the processor. </p>
+<p>The processor calculates the new program counter value and retrieves the corresponding instruction from instruction memory to which it is given as address input. We will call this function &quot;Instruction Fetch&quot;, 'IF'.</p>
+<p>Then, it decodes the value of all its fields, which includes retrieving the values of registers from the register file. We will call this function &quot;Instruction Decode&quot;, 'ID'.</p>
+<p>Then it selects the correct inputs and the correct alu function to make the calculation corresponding to the current instruction. The branch instructions will also use the Branch Comparison chip. We will call this function &quot;Execution&quot;, 'EX'.</p>
+<p>If applicable, it interacts with the data memory to either read it or write it (think the load and store instructions). We will call this function &quot;Memory&quot;, 'MEM'.</p>
+<p>Again if applicable, it writes the results of the Execution or of the Memory operations to the register file. We will call this function &quot;Write Back&quot;, 'WB'. </p>
+<p>Now let us build each stage, that is each of the new &quot;areas&quot; of the processor constituted by the components grouped by function and divided by registers. In doing so, we can compile the table below, which keeps track of all components and connections for each stage.</p>
+<p>The first area contains the components that perform the &quot;Instruction Fetch&quot; function, which means the Program counter register, the mux that selects its next value, the plus four adder and of course the instruction memory. The other chips, like the decode chip, are part of the next stages as they are, well, decoding the instruction, not just fetching it.</p>
+<p>Now that we have the components, we ought to recognize which signals go into the interstage register towards the next stage, which will be all the signals that are needed in the following stages of the processors, and which signals come from one of those following stages, which are usually needed when a signal that controls one of the components in a given stage is calculated in one of the following stages. Since this is the first stage there will be no signal going towards previous stages, but those will be needed in the following stages when &quot;sending back&quot; the signals that are calculated after they are needed. This will be more clear as we go along.</p>
+<p>Of the outputs of the components of this stage, all three are needed in the following chips: the instruction signal is needed in the decode chip, the program counter signal in one of the alu operator muxes, the program counter plus four signal in the mux that selects the register file write data. They therefore all go into the interstage register, which since they are all 32 bit signals will be 96 bits wide. </p>
+<p>Of the inputs of the components only one is not covered bu neither the components themselves nor signals coming from the previous stage, that is the input of the mux that selects the next program counter value linked to the alu result. For example a branch instruction with its branch taken needs the alu to calculate its branch address to feed the program counter. This is an example of a signal that is calculated in a later stage and sent back to a previous one.</p>
+<p>The second area contains the components that perform the &quot;instruction decode&quot; function, which means firstly extracting opcode and source register indexes, therefore we need the decode chip, secondly the value of said registers, so we need the whole register file, and finally the immediates if any, so we need the immediate chip.</p>
+<p>Of the outputs of these components, all three are needed in the following chips: the two values of the source registers are needed as inputs of the alu and of the branch comparison chip, as well as data memory for the source register 2, while the immediate is only needed as alu input. Note that since the program counter signal is not used here, it has just to be passed through towards the next stage.</p>
+<p>Of the inputs of the components, again only one is not covered by the components themselves, which is the register file data in, calculated al the way back at the last mux. This is calculated at the end of all other operations because many signals can be written in a register: arithmetic operations instructions write the alu result, loads write the memory output, jumps write the program counter plus four signal. There is however one observation that has to be done: when writing the register file, the data in signal and the write index signal must refer to the same instruction. This is not an issue in the single cycle processor, as the whole processor is processing a single instruction at any given time, but what we are doing is dividing the processor into stages so that each stage can contain an instruction and therefore process multiple instructions at the same time. That means that being the register file and the mux that selects the data in in two different stages, when writing the register file the instruction that will be in the same stage as the register file will be different than the one that the data in signal refers to. How to make sure that the write index signal will also refers to that same instruction and not to the one currently in the decode stage? </p>
+<p>The solution is cutting the write index sigal and pass it on to the interstage register towards the next stage, and pass it through all the stages until the same stage where the data in signal is calculated, to then be 'passed back' together with it. This ensure that the two signals refer to the same instruction.</p>
+<p>This also means that although we are placing the register file in this decode stage, functionally it is also part of the same stage that calculates the data in signal, which we have still to build. We can say that the register file chip is part of the decode stage when reading from it, and part of the other stage when writing to it.</p>
+<p>The third area contains the components that perform the &quot;execution function&quot;, that is the alu and the two muxes that select its inputs and the branch comparison chip.</p>
+<p>Of the outputs of these components the alu result and the value of source register two will go in the interstage register towards the next stage, together with the write index signal from the previous stage that is not used here. The alu result is also passed back to the fetch stage, where it is used as a possible next program counter value, as we already said.</p>
+<p>Of the inputs of the components, all are covered by the components themselves or by signals passed from the previous stage, therefore no external ones are needed.</p>
+<p>The fourth area contains the components that perform the 'memory function', which is just the data memory.</p>
+<p>Of its outputs, the only one, the data out signal, is passed to the next stage, together with the alu result signal that other than being used here as the address input of the data memory is also used as input of the register file write data selector mux, and together with the write index signal from the decode stage that is again not used here.</p>
+<p>Of its inputs, both are covered by the signals coming from the previous stage, so no external ones are needed.</p>
+<p>Finally we get to the last stage, consisting of the only remaining component, the register file write data selector mux, that simply passes its output and the write index to the decode stage to perform the write operation. Let us remember that functionally the register file is also part of this stage, as its write function is controlled from here.</p>
+<p>We now have a rudimentary pipelined processor. In the next part of the lesson we will briefly see how each type of instruction activates eac of its stages.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="3_costruzione_pipeline.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="3.2_exercises.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="3_costruzione_pipeline.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="3.2_exercises.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="submodules/js_builds_html/html_builders.js"></script>
+        <script type="text/javascript" src="submodules/paint2pic/p2p.js"></script>
+        <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/digitaljs_webpack_backup.js"></script>
+        <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/lz-string_backup.js"></script>
+        <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/sheas_functions.js"></script>
+        <script type="text/javascript" src="submodules/simple_hardware_editor_and_simulator/sheas_builders.js"></script>
+        <script type="text/javascript" src="lesson.js"></script>
+    </body>
+</html>

@@ -24,8 +24,8 @@
     - [Soluzioni](./2.8_soluzioni.md)
 - [Pipeline Building (Tutorial Ripes)](./3_costruzione_pipeline.md)
     - [From Single-Cycle](./3.1_from_singlecycle.md)
-    - [Exercises](./3.2_exercises.md)
-    <!-- - [Soluzioni](./3.3_soluzioni.md) -->
+    - [Exercises](./3.2_exercises.md) 
+    - [Soluzioni](./3.3_soluzioni.md)
     - [Stages](./3.4_stages.md)
 - [Demos](./4_demos.md)
     - [Simple Meaningless Program](./4.1_simple_meaningless_program.md)

@@ -2,6 +2,8 @@
 
 Questa lezione si può navigare dal menu sulla sinistra (prima icona in alto a sinistra) o anche solo con ```Arrow Key Right``` e ```Arrow Key Left``` (le freccette destra e sinistra della tastiera). 
 
+This site uses no server cookies. Local storage is used, but only not to lose the user input to the site's widgets at every refresh.
+
 Per continuare, click ```Arrow Key Right``` o seleziona uno dei link sotto.
 
 - [Overview](./0_overview.md)

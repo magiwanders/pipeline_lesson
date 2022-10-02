@@ -1,4 +1,4 @@
-# Costruzione Pipeline
+# Building the Pipelined Processor
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/fYGnEghKAKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -6,7 +6,7 @@
 
 - [Dal Single-Cycle](./3.1_from_singlecycle.md)
 - [Esercizi](./3.2_exercises.md)
-- [Soluzioni](./3.3_soluzioni.md)
+- [Soluzioni](./3.3_solutions.md)
 - [Stages](./3.4_stages.md)
 
 ## TRANSCRIPT

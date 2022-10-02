@@ -4,9 +4,9 @@
 
 ### Indice
 
-- [Ritardo di Propagazione](./2.1_ritardo_di_propagazione.md)
-- [RTL](./2.2_rtl.md)
-- [Esercizi](./2.3_esercizi.md)
+- [Ritardo di Propagazione](./2.1_propagation_delay.md)
+- [RTL](./2.3_rtl.md)
+- [Esercizi](./2.2_esercizi.md)
 - [Soluzioni](./2.4_soluzioni.md)
 - [Diagramma RTL](./2.5_diagramma_rtl.md)
 - [Pipeline](./2.6_pipeline.md)

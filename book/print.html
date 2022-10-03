@@ -621,7 +621,7 @@ No two components can have the same name, the page will output an error if tryin
     </tr>
   </tbody>
 </table>
-<p>To understand better, here is the table for the daily activity of a 24/7 laundry, which offers a washing machine which takes 1.45h to operate, a dryer which takes 1.30h and an ironer which takes 2h.</p>
+<p>Daily activity of a 24/7 laundry.</p>
 <div class="table-wrapper"><table><thead><tr><th style="text-align: center">Hours</th><th style="text-align: center">8:00-13:15</th><th style="text-align: center">13:15-18:30</th><th style="text-align: center">18:30-23.45</th><th style="text-align: center">23:45-5:00</th><th style="text-align: center">5:00-10:15</th></tr></thead><tbody>
 <tr><td style="text-align: center">Client 1</td><td style="text-align: center">Wash+Dry+Iron</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
 <tr><td style="text-align: center">Client 2</td><td style="text-align: center"></td><td style="text-align: center">Wash+Dry+Iron</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
@@ -629,9 +629,7 @@ No two components can have the same name, the page will output an error if tryin
 <tr><td style="text-align: center">Client 4</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">Wash+Dry+Iron</td><td style="text-align: center"></td></tr>
 <tr><td style="text-align: center">Client 5</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">Wash+Dry+Iron</td></tr>
 </tbody></table>
-</div>
-<p>How then can we optimize the profits of the laundry business? The answer to this question, back in the single cycle processor domain, is the focus of this lesson.</p>
-<details>
+</div><details>
   <summary>The solution, for a laundry business.</summary>
 <div class="table-wrapper"><table><thead><tr><th style="text-align: center">Hours</th><th style="text-align: center">8:00-10:00</th><th style="text-align: center">10:00-12:00</th><th style="text-align: center">12:00-14:00</th><th style="text-align: center">14:00-16:00</th><th style="text-align: center">16:00-18:00</th><th style="text-align: center">18:00-20:00</th><th style="text-align: center">20:00-22:00</th></tr></thead><tbody>
 <tr><td style="text-align: center">Client 1</td><td style="text-align: center">Washes (and waits 15 min)</td><td style="text-align: center">Dries (and waits 30 min)</td><td style="text-align: center">Irons</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
@@ -659,8 +657,10 @@ No two components can have the same name, the page will output an error if tryin
 <p>Let us now compile the graph while manually advancing the simulation. Let us pause it, inspect the clock signal, the input and the output, and enable the registers. Let's set the first input at zero, write it in the table, and advance by one clock cycle. We will see that though the input has been sample by the rising edge of the cycle, the output has not updated yet, as it will at the next rising edge. Remember that we consider the beginning of a clock cycle as its rising edge and the end of it at the step just before the next rising edge. </p>
 <p>At this point the operation of the circuit has been done on the first input, that is exponentiation and increment, so we write it down under cycle 1. We can therefore write the new output, let's say 5, and advance by one cycle.</p>
 <p>We can see the result for the first input being sampled, and we can compile the diagram with the operation at cycle 2. Then we start over again. New input, write the input in the table, advance one cycle and write the operation on the table.</p>
-<p>After a few steps we have a compiled table, that we can read in the following manner. What operation was done to input of value 5 in cycle 2? We read exponentiation and increment. What operation was done on input of value 12 at cycle 4? We read none. The reason why we have values only on the diagonal is because the present circuit can only process one input at the time, which means that each input is processed in one clock cycle from beginning to end. For now, let us keep how this diagram is constructed in mind and go back to reasoning on propagation delays</p>
-<p>The simplest solution is the most intuitive: letting three clients use the three machines at the same time in a linear fashion, that is a client starts using the next machine in the cleaning process when the previous client finishes using it. This means that the clients proceed to the next machine with the same frequency as the slowest one, in this case every two hours because of the ironer. Each client therefore completes the cleaning process in 6 hours instead of 5.15 hours, but the laundry processes one client every two hours instead of one every 5.15 hours. </p>
+<p>After a few steps we have a compiled table, that we can read in the following manner. What operation was done to input of value 5 in cycle 2? We read exponentiation and increment. What operation was done on input of value 12 at cycle 4? We read none. The reason why we have values only on the diagonal is because the present circuit can only process one input at the time, which means that each input is processed in one clock cycle from beginning to end. For now, let us keep how this diagram is constructed in mind, but let us not forget the original topic: that of propagation delays and the constraint they set on the clock speed. </p>
+<p>Imagine being the engineer who designed this circuit and that wants to process inputs faster. How can we modify the RTL circuit so that it maintains functionality but speeds calculations? Let us try to get to an answer with an analogy.</p>
+<p>Imagine being the manager of a laundry business open 24/7, which offers a washing machine which takes 1.45h to operate, a dryer which takes 1.30h and an ironer which takes 2h. One client comes in, uses the room with the three machines and then levaes, much like one input of the circuit above, which enters the input register, is processed, and exits the output register. With this organization each client keeps the room busy for 5.15 hours, and we can see a diagram similar to what we compiled before, in which each time frame contains the entire cleaning process of only one client. How then can we optimize the profits of the laundry business?</p>
+<p>The simplest solution is the most intuitive: letting three clients use the three machines at the same time in a linear fashion, that is a client starts using the next machine in the cleaning process when the previous client finishes using it. This means that the clients proceed to the next machine with the same frequency as the slowest process, in this case every two hours because of the ironer. Each client therefore completes the cleaning process in 6 hours instead of 5.15 hours, but the laundry processes one client every two hours instead of one every 5.15 hours. You can see how the diagram transforms: now, time frames are much smaller, each contains up to three different clients at the three different stages of the cleaning process, and processing the same amount of clients takes therefore way less time.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="pipeline"><a class="header" href="#pipeline">Pipeline</a></h1>
 <div id="sheas_container_4"><div style="width:100%; height:100%"><div class="loader"></div></div></div>
 <table class="table">
@@ -800,7 +800,14 @@ No two components can have the same name, the page will output an error if tryin
         }
     }
     function save_table(e) { localStorage.setItem(e.target.id, document.getElementById(e.target.id).value) }
-</script><div style="break-before: page; page-break-before: always;"></div><h1 id="esercizi-1"><a class="header" href="#esercizi-1">Esercizi</a></h1>
+</script>
+<h2 id="transcript-3"><a class="header" href="#transcript-3">Transcript</a></h2>
+<p>In this part of the lesson we will explain how the solution for the analogy of the laundry generalizes to the problem of the simple RTL circuit from the last part of the lesson and what all of this has to do with processors and how to make programs run faster on them.</p>
+<p>How the analogy maps to the simple RTL circuit is rather straightforward: the clients map to the inputs of the circuit, and the machines map to the operations the that circuit executes on them. Letting each client use a different machine corresponds to dividing the circuit in two with one further register, as shown in the circuit below, yielding a two-stage circuit which is able to effectively run faster, as the clock only has to wait for the propagation delay of the slowest of the two operations instead of waiting for the sum of their propagation delays. Just as each single client takes more overall time to process its own business, each input now takes longer to come out the other side, at least twice the slower component time, but the overall throughput of the laundry, that is the circuit increases. Feel free to try for yourself for a given input to the circuit the version with only one stage and two registers and the new version below with two stages and three registers and notice that you can allow a faster clock with the latter.</p>
+<p>The question is now, what does this have to do with the processor? As a matter of fact, the circuit that exponentiates and increments its input was also an analogy for a processor: a series of operations (read and write the memory, alu operations et cetera) that are executed on an input (an instruction) and that are synchronized by a clock signal, in a Register Transfer fashion. The very same diagrams that we compiled for the laundry and for the circuit we can compile for a processor.</p>
+<p>We made this whole journey, that started with remembering that logic gate operate with a propagation delay, to reach this pont: processors are made of a very large number of those ports, and their cumulative delay becomes very noticeable with so many of them in series. It is the objective of the hardware engineer to explore the ways to make it process more instructions in the same amount of time, preserving funcionality. Having already seen the solution in other analogic domains, it is just a matter of understanding how the principle generalizes to the processor. </p>
+<p>Just as in the two previous analogies, the objective is to divide the single cycle processor in multiple so called stages, separated by interstage registers, so that each contain one instruction completing one well defined part of its execution. This way, just as the laundry allowed for three clients at any given time working in parallel on different stages of the cleaning process, the so called &quot;pipelined&quot; processor will allow multiple instructions being processed at any given time, each completing one different stage of its processing. Both in the case of the laundry and in the case of the RTL circuit however, we did not have to identify the various discrete operations in which to divide the process, as they were trivial. How to sort the components of the single cycle into functionally defined clusters, and therefore how to divide with registers the processor, how the stages interact with one another and with each type of instruction are all topics of the next parts of the lesson.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="esercizi-1"><a class="header" href="#esercizi-1">Esercizi</a></h1>
 <ol>
 <li>Abbiamo visto il ritardo di propagazione del circuito Incrementer essere teoricamente di quasi 90 unità di tempo. Cosa cambia essendo uno dei due addendi sempre 1? Qual è il caso di maggior ritardo effettivo di propagazione per l'Incrementer?</li>
 </ol>
@@ -817,7 +824,7 @@ No two components can have the same name, the page will output an error if tryin
 <li><a href="./3.3_solutions.html">Soluzioni</a></li>
 <li><a href="./3.4_stages.html">Stages</a></li>
 </ul>
-<h2 id="transcript-3"><a class="header" href="#transcript-3">TRANSCRIPT</a></h2>
+<h2 id="transcript-4"><a class="header" href="#transcript-4">TRANSCRIPT</a></h2>
 <p>This tutorial is an unofficial Introduction to Ripes two point two point three.</p>
 <p>RIPES is a graphical processor simulator and assembly code editor for educational purposes. It was written by Morten Petersen. The program itself is theoretically architecture agnostic, but we can see in the processor selector that it currently only offers RISC-V single stage, pipelined and dual issue processors. Each processor has an extended layout for more visualization detail and settings for extensions or register initialization.</p>
 <p>Onto the prorgam itself, the EDITOR TAB contains the tools to program in assembly. Programs are loaded via File&gt;Load Program. It is currently biased towards RV32I (and depending on the processor M/C) assembly. On the left hand side actual assembly can be written (or C if you link a RISC-V compiler in the settings). On the right hand side is the machine code in hex, disassembled or binary form.</p>
@@ -894,7 +901,7 @@ The pipeline view, or horizontal/global view, focuses on the evolution and globa
     }
     function save_table(e) {localStorage.setItem(e.target.id, document.getElementById(e.target.id).value) }
 </script>
-<h2 id="transcript-4"><a class="header" href="#transcript-4">Transcript</a></h2>
+<h2 id="transcript-5"><a class="header" href="#transcript-5">Transcript</a></h2>
 <p>It is now the time to build the actual pipelined processor. As we anticipated during the last part of the lesson, the point is to divide the components of the processor by function and to divide the clusters with registers. Let us then start with a quick high level recap of the flow of the instruction in the processor. </p>
 <p>The processor calculates the new program counter value and retrieves the corresponding instruction from instruction memory to which it is given as address input. We will call this function &quot;Instruction Fetch&quot;, 'IF'.</p>
 <p>Then, it decodes the value of all its fields, which includes retrieving the values of registers from the register file. We will call this function &quot;Instruction Decode&quot;, 'ID'.</p>
@@ -1006,7 +1013,7 @@ sw a1 8(t2)
 jal a5 30
 </code></pre>
 <p>Ripes will be used for the simulation.</p>
-<h2 id="transcript-5"><a class="header" href="#transcript-5">Transcript</a></h2>
+<h2 id="transcript-6"><a class="header" href="#transcript-6">Transcript</a></h2>
 <p>We will now focus on each type of instruction activates each stage. Please load the 5 stage pipelined processor with no hazard unit and no forwarding in Extended mode.</p>
 <p>Load the 5 stage pipelined processor without Hazard Detection and without Forwarding in Standard mode, with no initializations and copy the program in the editor tab. Let us now start the simulation and consider the fetch stage. </p>
 <p>The fetch stage contains the circuit that calculates the next Program counter value, choosing between the current value plus four (which means fetching the instruction immediately following thecurrent one, as instructions are 32 bits, or 4 bytes wide) and the alu result, that for exaple holds the destination address of branch and jump instructions. Mind however that the signal that actually makes the choice is calculated in the execution stage. Therefore we can say that although topologically this circuit belongs to the Fetch stage, it functionally belongs to the execution stage, as that is where it is controlled from.</p>
@@ -1109,7 +1116,7 @@ LOOP:
     slli a3 a3 1     # -&gt; a3=a3&lt;&lt;1
     bne a5 x0 LOOP    # Branch if a5 is different from zero
 </code></pre>
-<h2 id="transcript-6"><a class="header" href="#transcript-6">Transcript</a></h2>
+<h2 id="transcript-7"><a class="header" href="#transcript-7">Transcript</a></h2>
 <p>The first program actually does nothing meaningful, which helps us focus on how it flows through the processor. We will comment on each cycle of the execution. I suggest pausing the video whenever you feel like you are ready to analyse the next step yourself, and then let the video continue to verify your work. For the Fetch stage we will focus on the choice of the next PC value, for the Decode stage we will focus on the various fields and flags that influence the behaviour of the rest of the stages, for the execution stage we will focus on abstracting the alu function in relation to the instruction function, while in the last two stages we will focus on the completion of the processing of each instruction.</p>
 <p>Side note, it is very important that you know hex values and ABI names by heart. For example, often values in the visualisations will be in hex while the register file on the right will have a decimal representation, or again the assembly code will use ABI register names. Make sure to know them well not to get confused.</p>
 <p>First of all, load the 5 stage processor without forwarding or hazard detection with the extended layout.</p>
@@ -1178,7 +1185,7 @@ LOOP:
    sw a2 0(t2)      # M[0xbc] = a2
    blt a2 a0 LOOP   #jumpif a2&lt;a0
 </code></pre>
-<h2 id="transcript-7"><a class="header" href="#transcript-7">Transcript</a></h2>
+<h2 id="transcript-8"><a class="header" href="#transcript-8">Transcript</a></h2>
 <p>Now onto the next demo.</p>
 <p>Load the 5 stage processor without forwarding or hazard detection with the extended layout. This is the same processor as the last demo.</p>
 <p>Initialise register t1 to the value 0x123, t2 to the value 0xbc, a0 to the value 0x00000fff.</p>

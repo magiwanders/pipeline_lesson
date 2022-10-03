@@ -136,10 +136,10 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="diagramma-rtl"><a class="header" href="#diagramma-rtl">Diagramma RTL</a></h1>
-<p>In questa parte della lezione si introduce un semplice diagramma per rappresentare l'esecuzione nel tempo di una logica RTL.</p>
+                        <h1 id="rtl-diagram"><a class="header" href="#rtl-diagram">RTL Diagram</a></h1>
+<p>This part of the lesson introduces a simple diagram for representing the time evolution of the execution of a circuit at Register Transfer Level.</p>
 <div id="sheas_container_3"><div style="width:100%; height:100%"><div class="loader"></div></div></div>
-<p>Usare la tabella sotto per disegnare il diagramma:</p>
+<p>Use the table below to generate the diagram:</p>
 <table class="table">
   <thead>
     <tr>
@@ -256,25 +256,24 @@
     </tr>
   </tbody>
 </table>
-<p>Per capire meglio, ecco la stessa tabella compilata per l'attività giornaliera di una lavanderia 24/7, provvista di una lavatrice (1.45h per lavare), una asciugatrice (1.30 h per asciugare) e una stiratrice (2h per stirare):</p>
-<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Orario</th><th style="text-align: center">8:00-13:15</th><th style="text-align: center">13:15-18:30</th><th style="text-align: center">18:30-23.45</th><th style="text-align: center">23:45-5:00</th><th style="text-align: center">5:00-10:15</th></tr></thead><tbody>
-<tr><td style="text-align: center">Cliente 1</td><td style="text-align: center">Lava+Asciuga+Stira</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
-<tr><td style="text-align: center">Cliente 2</td><td style="text-align: center"></td><td style="text-align: center">Lava+Asciuga+Stira</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
-<tr><td style="text-align: center">Cliente 3</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">Lava+Asciuga+Stira</td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
-<tr><td style="text-align: center">Cliente 4</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">Lava+Asciuga+Stira</td><td style="text-align: center"></td></tr>
-<tr><td style="text-align: center">Cliente 5</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">Lava+Asciuga+Stira</td></tr>
+<p>To understand better, here is the table for the daily activity of a 24/7 laundry, which offers a washing machine which takes 1.45h to operate, a dryer which takes 1.30h and an ironer which takes 2h.</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Hours</th><th style="text-align: center">8:00-13:15</th><th style="text-align: center">13:15-18:30</th><th style="text-align: center">18:30-23.45</th><th style="text-align: center">23:45-5:00</th><th style="text-align: center">5:00-10:15</th></tr></thead><tbody>
+<tr><td style="text-align: center">Client 1</td><td style="text-align: center">Wash+Dry+Iron</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">Client 2</td><td style="text-align: center"></td><td style="text-align: center">Wash+Dry+Iron</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">Client 3</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">Wash+Dry+Iron</td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">Client 4</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">Wash+Dry+Iron</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">Client 5</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">Wash+Dry+Iron</td></tr>
 </tbody></table>
 </div>
-<p>Come ottimizzare il lavoro della lavanderia? La risposta a questa domanda, riportata nel dominio del processore a singolo ciclo, è l'argomento fulcro della lezione.</p>
+<p>How then can we optimize the profits of the laundry business? The answer to this question, back in the single cycle processor domain, is the focus of this lesson.</p>
 <details>
-  <summary>La soluzione, per la lavanderia</summary>
-<p>Come è facile intuire, l'ottimizzazione più semplice è far usare contemporaneamente a tre clienti ognuna delle tre macchine. In questo modo per &quot;cambiare postazione&quot; bisogna aspettare la postazione più lenta, ossia la stiratura, quindi bisogna aspettare 2h. Ogni cliente finisce in più tempo (6 ore contro 5.15), ma la lavanderia processa un cliente ogni 2 ore invece che uno ogni 5 e un quarto.</p>
-<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Orario</th><th style="text-align: center">8:00-10:00</th><th style="text-align: center">10:00-12:00</th><th style="text-align: center">12:00-14:00</th><th style="text-align: center">14:00-16:00</th><th style="text-align: center">16:00-18:00</th><th style="text-align: center">18:00-20:00</th><th style="text-align: center">20:00-22:00</th></tr></thead><tbody>
-<tr><td style="text-align: center">Cliente 1</td><td style="text-align: center">Lava (e aspetta 15 min)</td><td style="text-align: center">Asciuga (e aspetta 30 min)</td><td style="text-align: center">Stira</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
-<tr><td style="text-align: center">Cliente 2</td><td style="text-align: center"></td><td style="text-align: center">Lava (e aspetta 15 min)</td><td style="text-align: center">Asciuga (e aspetta 30 min)</td><td style="text-align: center">Stira</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
-<tr><td style="text-align: center">Cliente 3</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">Lava (e aspetta 15 min)</td><td style="text-align: center">Asciuga (e aspetta 30 min)</td><td style="text-align: center">Stira</td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
-<tr><td style="text-align: center">Cliente 4</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">Lava (e aspetta 15 min)</td><td style="text-align: center">Asciuga (e aspetta 30 min)</td><td style="text-align: center">Stira</td><td style="text-align: center"></td></tr>
-<tr><td style="text-align: center">Cliente 5</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">Lava (e aspetta 15 min)</td><td style="text-align: center">Asciuga (e aspetta 30 min)</td><td style="text-align: center">Stira</td></tr>
+  <summary>The solution, for a laundry business.</summary>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">Hours</th><th style="text-align: center">8:00-10:00</th><th style="text-align: center">10:00-12:00</th><th style="text-align: center">12:00-14:00</th><th style="text-align: center">14:00-16:00</th><th style="text-align: center">16:00-18:00</th><th style="text-align: center">18:00-20:00</th><th style="text-align: center">20:00-22:00</th></tr></thead><tbody>
+<tr><td style="text-align: center">Client 1</td><td style="text-align: center">Washes (and waits 15 min)</td><td style="text-align: center">Dries (and waits 30 min)</td><td style="text-align: center">Irons</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">Client 2</td><td style="text-align: center"></td><td style="text-align: center">Washes (and waits 15 min)</td><td style="text-align: center">Dries (and waits 30 min)</td><td style="text-align: center">Irons</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">Client 3</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">Washes (and waits 15 min)</td><td style="text-align: center">Dries (and waits 30 min)</td><td style="text-align: center">Irons</td><td style="text-align: center"></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">Client 4</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">Washes (and waits 15 min)</td><td style="text-align: center">Dries (and waits 30 min)</td><td style="text-align: center">Irons</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">Client 5</td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">Washes (and waits 15 min)</td><td style="text-align: center">Dries (and waits 30 min)</td><td style="text-align: center">Irons</td></tr>
 </tbody></table>
 </div></details>
 <style type="text/css">
@@ -289,6 +288,15 @@
     }
     function save_table(e) { localStorage.setItem(e.target.id, document.getElementById(e.target.id).value) }
 </script>
+<h2 id="transcript"><a class="header" href="#transcript">Transcript</a></h2>
+<p>Let us now introduce a way to graph the dynamic behaviour of RTL circuits. The only difference between the circuit below and the previous ones is that this executes two operations within the two registers: an exponentiation to the power of two, and an increment. Therefore, given input 'x', we expect output to be 'x' to the power of two plus one. Note that the multiply chip does not feature the whole circuit down to nand gates, as it would be extremely complicated: it 'cheats' with an ad hoc component and an artificial fixed propagation delay. </p>
+<p>The graph has the cycles on the x axis, read from left to right, and the inputs given to the circuits on the y axis, read from top to bottom. In a nutshell, it keeps track of which input was being processed by the circuit at each cycle. At the crossing between the cycle and the input we are considering, we write the operation that has been carried on that input in that cycle.</p>
+<p>Let us now compile the graph while manually advancing the simulation. Let us pause it, inspect the clock signal, the input and the output, and enable the registers. Let's set the first input at zero, write it in the table, and advance by one clock cycle. We will see that though the input has been sample by the rising edge of the cycle, the output has not updated yet, as it will at the next rising edge. Remember that we consider the beginning of a clock cycle as its rising edge and the end of it at the step just before the next rising edge. </p>
+<p>At this point the operation of the circuit has been done on the first input, that is exponentiation and increment, so we write it down under cycle 1. We can therefore write the new output, let's say 5, and advance by one cycle.</p>
+<p>We can see the result for the first input being sampled, and we can compile the diagram with the operation at cycle 2. Then we start over again. New input, write the input in the table, advance one cycle and write the operation on the table.</p>
+<p>After a few steps we have a compiled table, that we can read in the following manner. What operation was done to input of value 5 in cycle 2? We read exponentiation and increment. What operation was done on input of value 12 at cycle 4? We read none. The reason why we have values only on the diagonal is because the present circuit can only process one input at the time, which means that each input is processed in one clock cycle from beginning to end. For now, let us keep how this diagram is constructed in mind and go back to reasoning on propagation delays</p>
+<p>The simplest solution is the most intuitive: letting three clients use the three machines at the same time in a linear fashion, that is a client starts using the next machine in the cleaning process when the previous client finishes using it. This means that the clients proceed to the next machine with the same frequency as the slowest one, in this case every two hours because of the ironer. Each client therefore completes the cleaning process in 6 hours instead of 5.15 hours, but the laundry processes one client every two hours instead of one every 5.15 hours. </p>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

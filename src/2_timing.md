@@ -4,14 +4,12 @@
 
 ### Indice
 
-- [Ritardo di Propagazione](./2.1_propagation_delay.md)
+- [Propagation Delay](./2.1_propagation_delay.md)
+- [Exercises](./2.2_esercizi.md) 
 - [RTL](./2.3_rtl.md)
-- [Esercizi](./2.2_esercizi.md)
-- [Soluzioni](./2.4_soluzioni.md)
 - [Diagramma RTL](./2.5_diagramma_rtl.md)
 - [Pipeline](./2.6_pipeline.md)
-- [Esercizi](./2.7_esercizi.md)
-- [Soluzioni](./2.8_soluzioni.md)
+- [Exercises](./2.7_esercizi.md)
 
 ## TRASNCRIPT
 

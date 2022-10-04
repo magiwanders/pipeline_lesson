@@ -1,4 +1,4 @@
-# Demos
+# Towards Hazards
 
 Finally, in the next two sessions we will see the dynamic execution of two simple assembly programs on Ripes.
 

@@ -1,4 +1,4 @@
-# Overview
+# Navigating This Lesson
 
 This lesson can be navigated with the menu on the left (first icon on the top left) or even only with the ```Arrow Right``` e ```Arrow Left``` keys.
 

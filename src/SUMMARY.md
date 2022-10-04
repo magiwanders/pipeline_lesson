@@ -1,12 +1,12 @@
 # Summary
 
-- [Overview](./0_overview.md)
-    - [Virtual Machine Setup](./0.1_setup.md)
+- [Navigating This Lesson](./0_navigating_this_lesson.md)
+    - [Virtual Machine Setup](./0.1_vm_setup.md)
     - [Important Info on the Virtual Machine](./0.2_important_info.md)
     - [Pre-test](./0.3_pretest.md)
 - [Prerequisites](./1_prerequisites.md)
-    - [Review of RISC-V Instruction Set, 2's complement and Hex Calculations](./1.1_exercises.md) <!--- [Soluzioni](./1.2_soluzioni.md) -->
-    - [Review of Single Cycle Processor Components](./1.3_other_prerequisites.md)
+    - [Review of RISC-V Instruction Set, 2's complement and Hex Calculations](./1.1_exercises.md)
+    - [Review of Single Cycle Processor Components](./1.3_components_review.md)
         - [Single Register](./1.4_single_register.md)
         - [ROM](./1.5_rom.md)
         - [Register File](./1.6_register_file.md)
@@ -14,18 +14,15 @@
         - [ALU](./1.8_alu.md)
 - [Circuit Timing (contains SHEAS Tutorial)](./2_timing.md)
     - [Consequences of a Non-Negligible Propagation Delay](./2.1_propagation_delay.md)
-    - [Exercises](./2.2_esercizi.md) <!-- - [Solutions](./2.4_soluzioni.md) -->
     - [Review of Register Transfer Level (RTL) abstraction](./2.3_rtl.md)
     - [A Diagram for Graphing the Dynamic Behaviour of RTL Circuits](./2.5_diagramma_rtl.md)
     - [Introduction to the Pipelined Processor](./2.6_pipeline.md)
-    - [Exercises](./2.7_esercizi.md) <!--- [Solutions](./2.8_soluzioni.md) -->
 - [Building the Pipelined Processor (contains Ripes Tutorial)](./3_building_the_pipeline.md)
     - [Grouping the Components of the Single-Cycle Processor](./3.1_from_singlecycle.md)
-    - [Exercises](./3.2_exercises.md) <!-- - [Solutions](./3.3_solutions.md) -->
     - [An Overview of how Each Inctruction Activates Each Stage](./3.4_stages.md)
-- [Demos](./4_demos.md)
-    - [Simple Meaningless Program](./4.1_simple_meaningless_program.md)
-    - [Simple Program Towards Hazards](./4.2_towards_hazards.md)
-    - [Assignments](./4.3_assignments.md)
+- [Towards Hazards](./4_demos.md)
+    - [DEMO - Meaningless Program](./4.1_simple_meaningless_program.md)
+    - [DEMO - Program Towards Hazards](./4.2_towards_hazards.md)
+    - [Assignment on Hazards](./4.3_assignments.md)
 - [RV32IMAC Cheat Sheet](./5_appendix.md)
 - [Post-test](./5.1_posttest.md)

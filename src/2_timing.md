@@ -1,15 +1,6 @@
-# Temporizzazione
+# Circuit Timing
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/CUn9LVzQL0g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-### Indice
-
-- [Propagation Delay](./2.1_propagation_delay.md)
-- [Exercises](./2.2_esercizi.md) 
-- [RTL](./2.3_rtl.md)
-- [Diagramma RTL](./2.5_diagramma_rtl.md)
-- [Pipeline](./2.6_pipeline.md)
-- [Exercises](./2.7_esercizi.md)
 
 ## TRASNCRIPT
 

@@ -3,12 +3,7 @@
 In order to follow the lesson successfully one must master:
 - Hex and 2's complement calculations
 - The RV32I Instruction Set
-- How a single cycle processor and its components work
-    - Single Registers
-    - Memories
-    - Register File (RS)
-    - PC
-    - ALU
+- How a single cycle processor and its components work (see more in the - [Other Prerequisites](./1.3_other_prerequisites.md) section)
 
 ### Index
 

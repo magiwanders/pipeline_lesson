@@ -3,7 +3,7 @@ authors = ["Simone Shawn Cazzaniga"]
 language = "it"
 multilingual = false
 src = "src"
-title = "Introduzione al Pipelining"
+title = "Introduction to Pipelining"
 
 [output.html]
 default-theme = "Ayu"

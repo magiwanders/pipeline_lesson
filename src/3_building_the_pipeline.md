@@ -2,12 +2,6 @@
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/fYGnEghKAKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Indice
-
-- [From Single-Cycle](./3.1_from_singlecycle.md)
-- [Exercises](./3.2_exercises.md) 
-- [Stages](./3.4_stages.md)
-
 ## TRANSCRIPT
 
 This tutorial is an unofficial Introduction to Ripes two point two point three.

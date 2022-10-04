@@ -198,12 +198,12 @@
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="pretest"><a class="header" href="#pretest">Pretest</a></h1>
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSerBSW7TVmaMTdVEQ43aB16SO2swQibapUNqwNOuBqMT74s0A/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe><div style="break-before: page; page-break-before: always;"></div><h1 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h1>
-<p>video</p>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/kLswTs3N_Kc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h2 id="transcript"><a class="header" href="#transcript">Transcript</a></h2>
-<p>In this lesson we are going to study how to modify the hardware of a single cycle processor to make it effectively run faster: a new computer architecture paradigm that allows more instructions to be processed in the same amount of time without loss of functionality.</p>
-<p>In order to understand the lesson, you should have just studied a single cycle processor design and have a strong grasp of the functioning of each of its components, because we are going to start from such a design to handcraft the new hardware organization. Similarly you should have a base knowledge of the RISC-V RV32I Instruction Set, since its characteristics and nuances are reflected in the architecture, and we are going to use assembly examples and case studies.</p>
-<p>This also implies that you are comfortable with hex and 2's complement calculations and register aliases (RISC-V ABI names).</p>
-<p>The lesson contains the tools you need to review all this material and keep it at hand. In particular, at the end of the lesson there is a link to some RISC-V cheat sheets that contains all the info you might need on the instruction set and on the ABI register names. The following section contains some exercises on encoding and decoding, together with hex and 2's complement calculations and conversions. Finally, the last part of the prerequisites sections contains some interactive models of some of the most important components of the single cycle processor. Later in the lesson we will use a visual processor simulator and you will be asked to do exercises on it. If you have any doubts and need a level of granularity greater than what it offers, use these interactive models.</p>
+<p>In this lesson we are going modify the hardware of a single cycle processor, building a new computer architecture paradigm that allows more instructions to be processed in the same amount of time, without loss of functionality.</p>
+<p>In order to understand the lesson, you should have just studied a single cycle processor design, and have a strong grasp of the functioning of each of its components. We are going to start from such a design to handcraft the new hardware organization. Similarly you should have a base knowledge of the RISC 5 RV 32 I Instruction Set, since its characteristics and nuances are reflected in the architecture, and we are going to use assembly examples and case studies.</p>
+<p>This also implies that you are comfortable with hex and 2's complement calculations and conversions, as well as with register aliases (RISC 5 ABI names).</p>
+<p>The lesson contains the tools you need to review all this material and keep it at hand. In particular, at the end of the lesson there is a link to some RISC 5 cheat sheets, that contains all the info you might need on the instruction set and on the ABI register names. The following section contains some exercises on encoding and decoding, together with hex and 2's complement calculations and conversions. Finally, the last part of the prerequisites sections, contains some interactive models, of some of the most important components of the processor. Later in the lesson we will use a visual processor simulator, and you will be asked to do exercises on it. If you have any doubts and need a level of granularity greater than what it offers, use these interactive models to review your knowledge.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="review-of-risc-v-instruction-set-2s-complement-and-hex-calculations"><a class="header" href="#review-of-risc-v-instruction-set-2s-complement-and-hex-calculations">Review of RISC-V Instruction Set, 2's complement and Hex Calculations</a></h1>
 <p>Remember than there is a link to a <a href="./5_appendix.html">RV32IMAC Cheat Sheet</a> at the end of the lesson.</p>
 <ol>
@@ -321,7 +321,7 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="register-file-rf"><a class="header" href="#register-file-rf">Register File (RF)</a></h1>
 <p>Design of the 32 bit RF by <a href="https://github.com/tilk">Marek Materzok</a>). This design is purely functional, it does not get to the level of detail of logic ports.</p>
 <div id="sheas_container_registerfile"><div style="width:100%; height:100%"><div class="loader"></div></div></div>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="pc-8-bits"><a class="header" href="#pc-8-bits">PC (8 bits)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pc"><a class="header" href="#pc">PC</a></h1>
 <div id="sheas_container_pc"><div style="width:100%; height:100%"><div class="loader"></div></div></div><div style="break-before: page; page-break-before: always;"></div><h1 id="alu"><a class="header" href="#alu">ALU</a></h1>
 <p>32 bits ALU design by <a href="https://github.com/tilk">Marek Materzok</a>). This design is purely functional, it does not get to the level of detail of logic ports.</p>
 <div id="sheas_container_alu"><div style="width:100%; height:100%"><div class="loader"></div></div></div>
@@ -691,12 +691,6 @@ No two components can have the same name, the page will output an error if tryin
 <p>Just as in the two previous analogies, the objective is to divide the single cycle processor in multiple so called stages, separated by interstage registers, so that each contain one instruction completing one well defined part of its execution. This way, just as the laundry allowed for three clients at any given time working in parallel on different stages of the cleaning process, the so called &quot;pipelined&quot; processor will allow multiple instructions being processed at any given time, each completing one different stage of its processing. Both in the case of the laundry and in the case of the RTL circuit however, we did not have to identify the various discrete operations in which to divide the process, as they were trivial. How to sort the components of the single cycle into functionally defined clusters, and therefore how to divide with registers the processor, how the stages interact with one another and with each type of instruction are all topics of the next parts of the lesson.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="building-the-pipelined-processor"><a class="header" href="#building-the-pipelined-processor">Building the Pipelined Processor</a></h1>
 <iframe width="854" height="480" src="https://www.youtube.com/embed/fYGnEghKAKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<h3 id="indice"><a class="header" href="#indice">Indice</a></h3>
-<ul>
-<li><a href="./3.1_from_singlecycle.html">From Single-Cycle</a></li>
-<li><a href="./3.2_exercises.html">Exercises</a> </li>
-<li><a href="./3.4_stages.html">Stages</a></li>
-</ul>
 <h2 id="transcript-5"><a class="header" href="#transcript-5">TRANSCRIPT</a></h2>
 <p>This tutorial is an unofficial Introduction to Ripes two point two point three.</p>
 <p>RIPES is a graphical processor simulator and assembly code editor for educational purposes. It was written by Morten Petersen. The program itself is theoretically architecture agnostic, but we can see in the processor selector that it currently only offers RISC-V single stage, pipelined and dual issue processors. Each processor has an extended layout for more visualization detail and settings for extensions or register initialization.</p>
@@ -893,7 +887,7 @@ jal a5 30
 <div style="break-before: page; page-break-before: always;"></div><h1 id="towards-hazards"><a class="header" href="#towards-hazards">Towards Hazards</a></h1>
 <p>Finally, in the next two sessions we will see the dynamic execution of two simple assembly programs on Ripes.</p>
 <p>Make sure you have read <a href="./0.1_setup.html">Setup</a> and <a href="./0.2_important_info.html">Important Info</a> in order to use the Ripes virtual machine properly.</p>
-<h3 id="indice-1"><a class="header" href="#indice-1">Indice</a></h3>
+<h3 id="indice"><a class="header" href="#indice">Indice</a></h3>
 <ul>
 <li><a href="./4.1_simple_meaningless_program.html">Simple Meaningless Program</a></li>
 <li><a href="./4.2_towards_hazards.html">Towards Hazards</a></li>

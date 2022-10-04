@@ -171,7 +171,7 @@
 <ul>
 <li>The virtual machine only shows the <code>Ripes</code> program, which opens at startup. It will be needed in the second part of the lesson.</li>
 <li>Verify that the copy and paste functionality works between the host and the guest (it is simply easier to copy programs from this site to within <code>Ripes</code>).</li>
-<li>Login credentials: 
+<li>Login credentials:
 <ul>
 <li>user: <code>student</code></li>
 <li>psw : <code>student</code></li>
@@ -733,8 +733,8 @@ No two components can have the same name, the page will output an error if tryin
 <p>Cache and I/O tabs are used for, well, studying cache and Input/Output but the detail for those is for another video. </p>
 <p>All of the processor designs can be modified in the source, for example for modifying the hazard unit of the 5 stage pipelined 32 bit processor one can modify the src/processors/RISC-V/rv5s/rv5s_hazardunit.h. The hardware description language is VSRTL, a domain specific language embedded in C++ by the same author. After modifying, Ripes has to be re-compiled. See instructions in the github repositories, links in the description.</p>
 <p>If you are not familiar with the pipeline feel free to skip the rest of the video and come back if you need :)</p>
-<p>Taking as reference the visualization of a pipelined single issue processor design, the student can use three overlapping but different ”perspectives of focus” when studying and playing with RIPES: 
-The stage view, or vertical view, focuses on checking if a given stage is modified by different kinds of instructions according to the students expectations: for the simplest example let us consider the IF stage. We expect thes hexes out of the instruction memory, and we can verify it when the corresponding instructions pass in in the IF stage. For the ID stage, we expect for example the add instruction to enable the write back flag and the store not to. We can again verify. For the EX stage and the add instruction, we expect the first input of the alu to be the content of the register 1, and we can verify it again. This was the stage or vertical view. 
+<p>Taking as reference the visualization of a pipelined single issue processor design, the student can use three overlapping but different ”perspectives of focus” when studying and playing with RIPES:
+The stage view, or vertical view, focuses on checking if a given stage is modified by different kinds of instructions according to the students expectations: for the simplest example let us consider the IF stage. We expect thes hexes out of the instruction memory, and we can verify it when the corresponding instructions pass in in the IF stage. For the ID stage, we expect for example the add instruction to enable the write back flag and the store not to. We can again verify. For the EX stage and the add instruction, we expect the first input of the alu to be the content of the register 1, and we can verify it again. This was the stage or vertical view.
 The instruction view, or cross view, focuses on following the instruction along the pipeline to understand its impact. This is the same thing as the previous focus, just under another perspective. For example the student has to notice that in whatever stage the instruction is in, it &quot;drags&quot;' with it the values it needs as they were when the instruction was in the stage in which they were created. For example the PC here is the current value, here is the previous, which was current when this instruction was in IF stage et cetera. This was the instruction or cross view.
 The pipeline view, or horizontal/global view, focuses on the evolution and global impact of signals within the pipeline: this is a combination of the previous two focuses. For example in the ID stage, the Write Register flag is produced here on the control unit and used here on the Register file, but there isn't any direct connection: it has to go all the way through the EX, MEM, and WB stages and come back to the ID stage, because it has to wait for the write data, that you see also coming from the WB stage, to be retrieved in the MEM stage in case of a load, or to be calculated in the EX stage in case of many other instructions. In each following stage the value of the write register flag is the that produced by the Control unit when the corresponding instruction was in the ID stage, so the value currently being used by the register file in the ID stage, which comes looping back from the WB stage, corresponds not to the one being produced by the instruction currently in the ID stage but to the one being produced by the instruction currently in the WB stage. So the instruction currently in WB is writing back to the register file only now, even if topologically the register file is in the ID stage and even if that same instruction already passed through it three cycles ago. The write register flag was ready then, but the data to write was not. So, the write register file had to be &quot;dragged&quot; along until the stage in which the actual write back was going to happen. This was the pipeline or horizontal or global focus. </p>
 <p>That is all, thank you.</p>
@@ -1034,7 +1034,7 @@ At the same time the Decode stage now contains the store instruction. I remind y
 <p>We are not going to repeat anything about the execution stage, as it contains the very same type of instruction as last cycle. You can use it as exercise.</p>
 <p>Finally, the decode stage contains the load: we can see that it will write to the register file in a few cycles, that it uses the immediate 0xbc in the next stage and that it reads from data memory.</p>
 <p>Cycle Five.</p>
-<p>Here in the write back stage the add immediate instruction finally completes its processing, by selecting the alu result, that two cycles ago was calculated as the sum of 0 and 7, and writing it to the register file at index 0xb. 
+<p>Here in the write back stage the add immediate instruction finally completes its processing, by selecting the alu result, that two cycles ago was calculated as the sum of 0 and 7, and writing it to the register file at index 0xb.
 Mind that at the same time another instruction is in the decode stage, and is doing some other thing in parallel. Since it is an add instruction it is reading two registers from the register file. This instruction is the first of a streak of 4 arithmetic operations, two examples of which you have already seen, so we will focus less on the details from now on.</p>
 <p>Analysing the assembly, we found that we expect this add instruction to retrieve the register a0 with value 5, and the register a1 with value 7. However, on the right we can see that the register a1 is still zero, since the value is being written in this cycle and will be visible from the next. Fortunately, the implementation of the register file of this specific processor, allows for reading a register at the same time of it being written, so with input 0xb, which corresponds to a1, we can still see the value 7. But what if this was not the case or worse, what if the previous instruction, the load, needed the value of a1? The value was not ready at the previous cycle. We will cover this case in the next part of the lesson, so remember it.</p>
 <p>So the add instruction retrieves the correct values of 5 and 7, and will write their sum in register 14 in the write back stage.</p>
@@ -1070,7 +1070,7 @@ Mind that at the same time another instruction is in the decode stage, and is do
 </ul>
 <pre><code class="language-assembly">sw t1 0(t2)         # M[oxbc] = 0x123
 LOOP:
-   lw a1 0(t2)      # a1 = M[0xbc] 
+   lw a1 0(t2)      # a1 = M[0xbc]
    add a2 a1 a1     # a2 = a1+a1
    sw a2 0(t2)      # M[0xbc] = a2
    blt a2 a0 LOOP   #jumpif a2&lt;a0
@@ -1154,7 +1154,7 @@ loop:
  addi x5,x0,0x11        # set x5 to 0x11
   sw x5, 0x100(x0)       # store at address 0x100
   lw x6, 0x100(x0)       # get from mem
-  addi x6,x6,1          
+  addi x6,x6,1
   sw x6, 0x104(x0)       # store to mem 0x104
 ```
 

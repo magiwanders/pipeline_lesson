@@ -155,7 +155,7 @@
 </ul>
 <pre><code class="language-assembly">sw t1 0(t2)         # M[oxbc] = 0x123
 LOOP:
-   lw a1 0(t2)      # a1 = M[0xbc] 
+   lw a1 0(t2)      # a1 = M[0xbc]
    add a2 a1 a1     # a2 = a1+a1
    sw a2 0(t2)      # M[0xbc] = a2
    blt a2 a0 LOOP   #jumpif a2&lt;a0

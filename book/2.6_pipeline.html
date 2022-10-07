@@ -255,6 +255,27 @@
     </tr>
   </tbody>
 </table>
+<p>Here is a program to use in order to write a simple diagram for the single cycle processor:</p>
+<ul>
+<li>
+<p>Initialized registers:</p>
+<ul>
+<li><code>t1 = 0x123</code></li>
+<li><code>t2 = 0xbc</code></li>
+<li><code>a0 = 0x00000fff</code></li>
+</ul>
+</li>
+<li>
+<p>Program:</p>
+</li>
+</ul>
+<pre><code class="language-assembly">sw t1 0(t2)         # M[0xbc] = 0x123
+LOOP:
+   lw a1 0(t2)      # a1 = M[0xbc] 
+   add a2 a1 a1     # a2 = a1+a1
+   sw a2 0(t2)      # M[0xbc] = a2
+   blt a2 a0 LOOP   # jump if a2&lt;a0
+</code></pre>
 <p>Here is a cheatsheet that compares the case of the laundry to the processor. This is helpful to remember the core concepts.</p>
 <div class="table-wrapper"><table><thead><tr><th>CONTEXT</th><th>24/7 Laundry</th><th>Single Cycle Processor</th></tr></thead><tbody>
 <tr><td>THING TO PROCESS</td><td>CLIENT</td><td>INSTRUCTION</td></tr>
@@ -283,11 +304,13 @@
 <li>You found out during previous exercises a qualitative estimate of the maximum theoretical propagation delay of the Incrementer circuit. You may have noticed that the circuit is actually a 8 bit adder with one &quot;hidden&quot; input set to one. Did this influence your estimate of the total propagation delate? Discuss the difference in expected actual propagation delay, if any, between a normal adder and the incrementer.</li>
 </ol>
 <h2 id="transcript"><a class="header" href="#transcript">Transcript</a></h2>
-<p>In this part of the lesson we will explain how the solution for the analogy of the laundry generalizes to the problem of the simple RTL circuit from the last part of the lesson and what all of this has to do with processors and how to make programs run faster on them.</p>
-<p>How the analogy maps to the simple RTL circuit is rather straightforward: the clients map to the inputs of the circuit, and the machines map to the operations the that circuit executes on them. Letting each client use a different machine corresponds to dividing the circuit in two with one further register, as shown in the circuit below, yielding a two-stage circuit which is able to effectively run faster, as the clock only has to wait for the propagation delay of the slowest of the two operations instead of waiting for the sum of their propagation delays. Just as each single client takes more overall time to process its own business, each input now takes longer to come out the other side, at least twice the slower component time, but the overall throughput of the laundry, that is the circuit increases. Feel free to try for yourself for a given input to the circuit the version with only one stage and two registers and the new version below with two stages and three registers and notice that you can allow a faster clock with the latter.</p>
-<p>The question is now, what does this have to do with the processor? As a matter of fact, the circuit that exponentiates and increments its input was also an analogy for a processor: a series of operations (read and write the memory, alu operations et cetera) that are executed on an input (an instruction) and that are synchronized by a clock signal, in a Register Transfer fashion. The very same diagrams that we compiled for the laundry and for the circuit we can compile for a processor.</p>
-<p>We made this whole journey, that started with remembering that logic gate operate with a propagation delay, to reach this pont: processors are made of a very large number of those ports, and their cumulative delay becomes very noticeable with so many of them in series. It is the objective of the hardware engineer to explore the ways to make it process more instructions in the same amount of time, preserving funcionality. Having already seen the solution in other analogic domains, it is just a matter of understanding how the principle generalizes to the processor. </p>
-<p>Just as in the two previous analogies, the objective is to divide the single cycle processor in multiple so called stages, separated by interstage registers, so that each contain one instruction completing one well defined part of its execution. This way, just as the laundry allowed for three clients at any given time working in parallel on different stages of the cleaning process, the so called &quot;pipelined&quot; processor will allow multiple instructions being processed at any given time, each completing one different stage of its processing. Both in the case of the laundry and in the case of the RTL circuit however, we did not have to identify the various discrete operations in which to divide the process, as they were trivial. How to sort the components of the single cycle into functionally defined clusters, and therefore how to divide with registers the processor, how the stages interact with one another and with each type of instruction are all topics of the next parts of the lesson.</p>
+<p>In this part of the lesson we will explain how the solution for the analogy of the laundry generalizes to the problem of the simple RTL circuit from the last part of the lesson, and what all of this has to do with processors and how to make programs run faster on them.</p>
+<p>How the analogy maps to the simple RTL circuit is rather straightforward: the clients map to the inputs of the circuit, and the machines map to the operations the that circuit executes on them. Letting each client use a different machine corresponds to dividing the circuit in two, with one further register, as shown in the circuit below, yielding a two-stage circuit which is able to effectively run faster, as the clock only has to wait for the propagation delay of the slowest of the two operations instead of waiting for the sum of their propagation delays. Just as each single client takes more overall time to process its own business, each input now takes longer to come out the other side, twice the slower component time, but the overall throughput of the circuit increases. Feel free to try for yourself for a given input to the circuit the version with only one stage, and two registers, and the new version below with two stages and three registers,and notice that you can allow a faster clock with the latter.</p>
+<p>Let us therefore see how to draw the diagram for this case........</p>
+<p>The question is now, what does this have to do with the processor? As a matter of fact, the circuit that exponentiates and increments its input was also an analogy for a processor: a series of operations (read and write the memory, alu operations et cetera) that are executed on an input (an instruction) and that are synchronized by a clock signal, in a Register Transfer fashion. The very same diagrams that we compiled for the laundry and for the circuit, we can compile for a processor.</p>
+<p>Let us take as example the program below........</p>
+<p>We made this whole journey, that started with remembering that logic gate operate with a propagation delay, to reach this pont: processors are made of a very large number of those ports, and their cumulative delay becomes very noticeable with so many of them in series. It is the objective of the hardware engineer, to explore the ways to make it process more instructions in the same amount of time, preserving funcionality. Having already seen the solution in other analogic domains, it is just a matter of understanding how the principle generalizes to the processor. </p>
+<p>Just as in the two previous analogies, the objective is to divide the single cycle processor in multiple so called stages, separated by interstage registers, so that each contains one instruction completing one well defined part of its execution. This way, just as the laundry allowed for three clients at any given time working in parallel, on different stages of the cleaning process, the so called &quot;pipelined&quot; processor will allow multiple instructions being processed, at any given time, each completing one different stage of its processing. Both in the case of the laundry and in the case of the RTL circuit however, we did not have to identify the various discrete operations in which to divide the process, as they were trivial. How to sort the components of the single cycle into functionally defined clusters, and therefore how to divide the processor with registers, how the stages interact with one another and with each type of instruction, are all topics of the next parts of the lesson.</p>
 
                     </main>
 

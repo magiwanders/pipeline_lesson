@@ -661,17 +661,7 @@ No two components can have the same name, the page will output an error if tryin
 </table>
 <p>Here is a program to use in order to write a simple diagram for the single cycle processor:</p>
 <ul>
-<li>
-<p>Initialized registers:</p>
-<ul>
-<li><code>t1 = 0x123</code></li>
-<li><code>t2 = 0xbc</code></li>
-<li><code>a0 = 0x00000fff</code></li>
-</ul>
-</li>
-<li>
-<p>Program:</p>
-</li>
+<li>Program:</li>
 </ul>
 <pre><code class="language-assembly">sw t1 0(t2)         # M[0xbc] = 0x123
 LOOP:
@@ -680,6 +670,89 @@ LOOP:
    sw a2 0(t2)      # M[0xbc] = a2
    blt a2 a0 LOOP   # jump if a2&lt;a0
 </code></pre>
+<table class="table">
+  <colgroup>
+      <col span="1" style="width: 20%;">
+      <col span="1" style="width: 10%;">
+      <col span="1" style="width: 10%;">
+      <col span="1" style="width: 10%;">
+      <col span="1" style="width: 10%;">
+      <col span="1" style="width: 10%;">
+      <col span="1" style="width: 10%;">
+      <col span="1" style="width: 10%;">
+      <col span="1" style="width: 10%;">
+  </colgroup>
+  <thead>
+    <tr>
+        <th style="width:70%">Input (instruction)</th>
+        <th>Cycle 1</th>
+        <th>Cycle 2</th>
+        <th>Cycle 3</th>
+        <th>Cycle 4</th>
+        <th>Cycle 5</th>
+        <th>Cycle 6</th>
+        <th>Cycle 7</th>
+        <th>Cycle 8</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>sw t1 0(t2)</th>
+      <th><div><input size=2 type="string" id='2.6.1.2.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.1.3.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.1.4.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.1.5.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.1.6.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.1.7.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.1.8.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.1.9.1' onchange="save_table(event)"></div></th>
+    </tr>
+    <tr>
+      <th>lw a1 0(t2)</th>
+      <th><div><input size=2 type="string" id='2.6.2.2.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.2.3.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.2.4.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.2.5.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.2.6.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.2.7.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.2.8.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.2.9.1' onchange="save_table(event)"></div></th>
+    </tr>
+    <tr>
+      <th>add a2 a1 a1</th>
+      <th><div><input size=2 type="string" id='2.6.3.2.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.3.3.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.3.4.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.3.5.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.3.6.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.3.7.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.3.8.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.3.9.1' onchange="save_table(event)"></div></th>
+    </tr>
+    <tr>
+      <th>sw a2 0(t2)</th>
+      <th><div><input size=2 type="string" id='2.6.4.2.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.4.3.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.4.4.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.4.5.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.4.6.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.4.7.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.4.8.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.4.9.1' onchange="save_table(event)"></div></th>
+    </tr>
+    <tr>
+      <th>blt a2 a0 LOOP</th>
+      <th><div><input size=2 type="string" id='2.6.5.2.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.5.3.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.5.4.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.5.5.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.5.6.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.5.7.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.5.8.1' onchange="save_table(event)"></div></th>
+      <th><div><input size=2 type="string" id='2.6.5.9.1' onchange="save_table(event)"></div></th>
+    </tr>
+  </tbody>
+</table>
 <p>Here is a cheatsheet that compares the case of the laundry to the processor. This is helpful to remember the core concepts.</p>
 <div class="table-wrapper"><table><thead><tr><th>CONTEXT</th><th>24/7 Laundry</th><th>Single Cycle Processor</th></tr></thead><tbody>
 <tr><td>THING TO PROCESS</td><td>CLIENT</td><td>INSTRUCTION</td></tr>
@@ -703,6 +776,14 @@ LOOP:
     }
     function save_table(e) { localStorage.setItem(e.target.id, document.getElementById(e.target.id).value) }
 </script>
+<script>
+    for (var i=1; i<10; i++) {
+        for (var j=1; j<10; j++) {
+            var id = '2.6.' + i + '.' + j + '.1'
+            document.getElementById(id).value = localStorage.getItem(id)
+        }
+    }
+</script>
 <h1 id="exercises-1"><a class="header" href="#exercises-1">Exercises</a></h1>
 <ol>
 <li>You found out during previous exercises a qualitative estimate of the maximum theoretical propagation delay of the Incrementer circuit. You may have noticed that the circuit is actually a 8 bit adder with one &quot;hidden&quot; input set to one. Did this influence your estimate of the total propagation delate? Discuss the difference in expected actual propagation delay, if any, between a normal adder and the incrementer.</li>
@@ -710,11 +791,18 @@ LOOP:
 <h2 id="transcript-4"><a class="header" href="#transcript-4">Transcript</a></h2>
 <p>In this part of the lesson we will explain how the solution for the analogy of the laundry generalizes to the problem of the simple RTL circuit from the last part of the lesson, and what all of this has to do with processors and how to make programs run faster on them.</p>
 <p>How the analogy maps to the simple RTL circuit is rather straightforward: the clients map to the inputs of the circuit, and the machines map to the operations the that circuit executes on them. Letting each client use a different machine corresponds to dividing the circuit in two, with one further register, as shown in the circuit below, yielding a two-stage circuit which is able to effectively run faster, as the clock only has to wait for the propagation delay of the slowest of the two operations instead of waiting for the sum of their propagation delays. Just as each single client takes more overall time to process its own business, each input now takes longer to come out the other side, twice the slower component time, but the overall throughput of the circuit increases. Feel free to try for yourself for a given input to the circuit the version with only one stage, and two registers, and the new version below with two stages and three registers,and notice that you can allow a faster clock with the latter.</p>
-<p>Let us therefore see how to draw the diagram for this case........</p>
+<p>Let us therefore see how to draw the diagram for this case. Let us use the same inputs as last time, therefore 0, 5, and 12. Let us write them down.</p>
+<p>Inspect the clock and all the chain of signals, set the input output, and all monitors to decimal, and pause the simulation. </p>
+<p>Set the input to zero and dvance the simulation by one clock cycle. We will call this, cycle one. You can see that the input zero has propagated in all the exponentiation stage of the circuit. Therefore, we can say that in cycle one the input zero was processed with the exponentiation.</p>
+<p>Set the input to five and advance the simulation by one clock cycle. Now the input zero has passed to the increment stage, while the input five is in the exponentiation stage.</p>
+<p>Set the input to twelve and advance the simulation by one clock cycle. We can see now that the input zero has finished processing, and the output shows the result one. Both the other inputs have behaved similarly, shifting to the right, with the 5 input now being incremented and the 12 input now being exponentiated.</p>
+<p>Let us do one more cycle. Set the input to 7 and advance the simulation by one clock cycle. The output now shows twenty six, the result of input 5, while the incrementer is processing the input 12 and the exponentiator is handling the input 7.</p>
+<p>We could go on indefinitely in this fashion.</p>
 <p>The question is now, what does this have to do with the processor? As a matter of fact, the circuit that exponentiates and increments its input was also an analogy for a processor: a series of operations (read and write the memory, alu operations et cetera) that are executed on an input (an instruction) and that are synchronized by a clock signal, in a Register Transfer fashion. The very same diagrams that we compiled for the laundry and for the circuit, we can compile for a processor.</p>
-<p>Let us take as example the program below........</p>
 <p>We made this whole journey, that started with remembering that logic gate operate with a propagation delay, to reach this pont: processors are made of a very large number of those ports, and their cumulative delay becomes very noticeable with so many of them in series. It is the objective of the hardware engineer, to explore the ways to make it process more instructions in the same amount of time, preserving funcionality. Having already seen the solution in other analogic domains, it is just a matter of understanding how the principle generalizes to the processor. </p>
-<p>Just as in the two previous analogies, the objective is to divide the single cycle processor in multiple so called stages, separated by interstage registers, so that each contains one instruction completing one well defined part of its execution. This way, just as the laundry allowed for three clients at any given time working in parallel, on different stages of the cleaning process, the so called &quot;pipelined&quot; processor will allow multiple instructions being processed, at any given time, each completing one different stage of its processing. Both in the case of the laundry and in the case of the RTL circuit however, we did not have to identify the various discrete operations in which to divide the process, as they were trivial. How to sort the components of the single cycle into functionally defined clusters, and therefore how to divide the processor with registers, how the stages interact with one another and with each type of instruction, are all topics of the next parts of the lesson.</p>
+<p>The diagram for the single cycle processor is very simple, as only one instruction can fit inside it at any given cycle. Let us use the acronym &quot;SC&quot; for cingle cycle to indicate all the operations that the single cycle processor executes on the input instruction. In the first cycle, we expect the first instruction to be processed, in the second the second instruction and so on until the end of execution. In case the branch is taken once, cycle six will contain the load, and the execution continues as before. </p>
+<p>Now, the main question that we are going to answer in this lesson is, how to modify the hardware in order to process more instructions in the same amount of time?</p>
+<p>Just as in the two previous analogies, the objective is to divide the single cycle processor in multiple so called stages, separated by interstage registers, so that each contains one instruction completing one well defined part of the total execution. This way, just as the laundry allowed for three clients at any given time working in parallel, on different stages of the cleaning process, the so called &quot;pipelined&quot; processor will allow multiple instructions being processed, at any given time, each completing one different stage of its processing. Both in the case of the laundry and in the case of the RTL circuit however, we did not have to identify the various discrete operations in which to divide the process, as they were trivial. How to sort the components of the single cycle into functionally defined clusters, and therefore how to divide the processor with registers, how the stages interact with one another and with each type of instruction, are all topics of the next parts of the lesson.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="building-the-pipelined-processor"><a class="header" href="#building-the-pipelined-processor">Building the Pipelined Processor</a></h1>
 <iframe width="854" height="480" src="https://www.youtube.com/embed/fYGnEghKAKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h2 id="transcript-5"><a class="header" href="#transcript-5">TRANSCRIPT</a></h2>

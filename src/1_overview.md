@@ -1,12 +1,20 @@
 # Overview and Prerequisites
 
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/kLswTs3N_Kc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Pre-Test
+
+Please compile this form before continuing to the lesson. It should take no more than 10 minutes.
+
+<iframe width="100%" height="500px" src="https://forms.office.com/r/twdkh8b2Cj?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+
+## Navigation
+
 This lesson can be navigated with the menu on the left (first icon on the top left) or even only with the ```Arrow Right``` e ```Arrow Left``` keys.
 
 This site uses no server side cookies. Local storage is used, but only not to lose the user input to the site's widgets at every page refresh.
 
-After watching the overview video below, click ```Arrow Right```, or choose from the menu on the left.
-
-<iframe width="100%" height="500" src="https://www.youtube.com/embed/kLswTs3N_Kc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+After watching the overview video and compiling the pre-test, click ```Arrow Right```, or choose from the menu on the left.
 
 ## Transcript
 

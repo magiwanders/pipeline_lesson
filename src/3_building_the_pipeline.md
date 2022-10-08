@@ -1,5 +1,41 @@
 # Building the Pipelined Processor
 
+We are now going to build the pipeline, but we are going to use another simulation program: Ripes. Below you'll find a guide to download it and use it.
+
+## Ripes Setup
+
+### Virtual Machine Setup
+
+- Download the virtual machine containing Ripes [HERE](https://drive.google.com/uc?export=download&id=1MIDXYVtsaYKxCYUdW-lFQ8cbkSl-Truh) (the file ```comparch.ova``` is relatively big at ~2.7GB)
+- Download and install <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a> for your system.
+- Open VirtualBox and import the file ```comparch.ova```:
+    - ```File > Import Appliance```
+    - Select the file ```comparch.ova```
+    - Click ```Next```, click ```Import```
+    - A new Virtual Machine should appear in the main window. Double click for booting it up.
+
+### Important Info on the Virtual Machine
+The information that follows is not directly useful for the lesson but might be needed when operating the virtual machine:
+
+**Some Ripes sub-windows, like the Pipeline Diagram one, DO NOT have the 'x' button to close them. Use the 'Esc' key.**
+
+- The virtual machine only shows the ```Ripes``` program, which opens at startup. It will be needed in the second part of the lesson.
+- Verify that the copy and paste functionality works between the host and the guest (it is simply easier to copy programs from this site to within ```Ripes```).
+- Login credentials: 
+    - user: ```student```
+    - psw : ```student```
+- System: ```Manjaro Linux i3 minimal updated september 2022```. Any modification or update is strongly advised against to preserve functionality.
+- How to open a terminal:
+    - ```Alt+2``` 
+    - ```Alt+Enter```
+    - The terminal is a standard linux terminal. If one desires to modify the i3 configuration, one has to modify the file ```~/.config/i3/config``` for example with the ```nano``` editor:
+        - ```sudo nano ~/.config/i3/config```
+- To return to Ripes in any moment:
+    - ```Alt+1```
+- If for any reason ```Ripes``` closes, reboot the virtual machine.
+
+## Ripes Tutorial
+
 <iframe width="854" height="480" src="https://www.youtube.com/embed/fYGnEghKAKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## TRANSCRIPT

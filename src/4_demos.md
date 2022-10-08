@@ -4,8 +4,8 @@ Finally, in the next two sessions we will see the dynamic execution of two simpl
 
 Make sure you have read [Setup](./0.1_setup.md) and [Important Info](./0.2_important_info.md) in order to use the Ripes virtual machine properly.
 
-### Indice
+### Index
 
-- [Simple Meaningless Program](./4.1_simple_meaningless_program.md)
-- [Towards Hazards](./4.2_towards_hazards.md)
-- [Assignments](./4.3_assignments.md)
+- [DEMO - Meaningless Program](./4.1_simple_meaningless_program.md)
+- [DEMO - Program Towards Hazards](./4.2_towards_hazards.md)
+- [Assignment on Hazards](./4.3_assignments.md)

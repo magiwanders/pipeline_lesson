@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Important Info on the Virtual Machine - Introduction to Pipelining</title>
+        <title>Overview and Prerequisites - Introduction to Pipelining</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -77,7 +77,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="0_navigating_this_lesson.html"><strong aria-hidden="true">1.</strong> Navigating This Lesson</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="0.1_vm_setup.html"><strong aria-hidden="true">1.1.</strong> Virtual Machine Setup</a></li><li class="chapter-item expanded "><a href="0.2_important_info.html" class="active"><strong aria-hidden="true">1.2.</strong> Important Info on the Virtual Machine</a></li><li class="chapter-item expanded "><a href="0.3_pretest.html"><strong aria-hidden="true">1.3.</strong> Pre-test</a></li></ol></li><li class="chapter-item expanded "><a href="1_prerequisites.html"><strong aria-hidden="true">2.</strong> Prerequisites</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.1_exercises.html"><strong aria-hidden="true">2.1.</strong> Review of RISC-V Instruction Set, 2's complement and Hex Calculations</a></li><li class="chapter-item expanded "><a href="1.3_components_review.html"><strong aria-hidden="true">2.2.</strong> Review of Single Cycle Processor Components</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.4_single_register.html"><strong aria-hidden="true">2.2.1.</strong> Single Register</a></li><li class="chapter-item expanded "><a href="1.5_rom.html"><strong aria-hidden="true">2.2.2.</strong> ROM</a></li><li class="chapter-item expanded "><a href="1.6_register_file.html"><strong aria-hidden="true">2.2.3.</strong> Register File</a></li><li class="chapter-item expanded "><a href="1.7_pc.html"><strong aria-hidden="true">2.2.4.</strong> PC</a></li><li class="chapter-item expanded "><a href="1.8_alu.html"><strong aria-hidden="true">2.2.5.</strong> ALU</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="2_timing.html"><strong aria-hidden="true">3.</strong> Circuit Timing (contains SHEAS Tutorial)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2.1_propagation_delay.html"><strong aria-hidden="true">3.1.</strong> Consequences of a Non-Negligible Propagation Delay</a></li><li class="chapter-item expanded "><a href="2.3_rtl.html"><strong aria-hidden="true">3.2.</strong> Review of Register Transfer Level (RTL) abstraction</a></li><li class="chapter-item expanded "><a href="2.5_diagramma_rtl.html"><strong aria-hidden="true">3.3.</strong> A Diagram for Graphing the Dynamic Behaviour of RTL Circuits</a></li><li class="chapter-item expanded "><a href="2.6_pipeline.html"><strong aria-hidden="true">3.4.</strong> Introduction to the Pipelined Processor</a></li></ol></li><li class="chapter-item expanded "><a href="3_building_the_pipeline.html"><strong aria-hidden="true">4.</strong> Building the Pipelined Processor (contains Ripes Tutorial)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="3.1_from_singlecycle.html"><strong aria-hidden="true">4.1.</strong> Grouping the Components of the Single-Cycle Processor</a></li><li class="chapter-item expanded "><a href="3.4_stages.html"><strong aria-hidden="true">4.2.</strong> An Overview of how Each Inctruction Activates Each Stage</a></li></ol></li><li class="chapter-item expanded "><a href="4_demos.html"><strong aria-hidden="true">5.</strong> Towards Hazards</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4.1_simple_meaningless_program.html"><strong aria-hidden="true">5.1.</strong> DEMO - Meaningless Program</a></li><li class="chapter-item expanded "><a href="4.2_towards_hazards.html"><strong aria-hidden="true">5.2.</strong> DEMO - Program Towards Hazards</a></li><li class="chapter-item expanded "><a href="4.3_assignments.html"><strong aria-hidden="true">5.3.</strong> Assignment on Hazards</a></li></ol></li><li class="chapter-item expanded "><a href="5_appendix.html"><strong aria-hidden="true">6.</strong> RV32IMAC Cheat Sheet</a></li><li class="chapter-item expanded "><a href="5.1_posttest.html"><strong aria-hidden="true">7.</strong> Post-test</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="1_overview.html" class="active"><strong aria-hidden="true">1.</strong> Overview and Prerequisites</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.1_hex_2scomplement_rv32i.html"><strong aria-hidden="true">1.1.</strong> Review of RISC-V Instruction Set, 2's complement and Hex Calculations</a></li><li class="chapter-item expanded "><a href="1.2_components_review.html"><strong aria-hidden="true">1.2.</strong> Review of Single Cycle Processor Components</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.2.1_single_register.html"><strong aria-hidden="true">1.2.1.</strong> Single Register</a></li><li class="chapter-item expanded "><a href="1.2.2_rom.html"><strong aria-hidden="true">1.2.2.</strong> ROM</a></li><li class="chapter-item expanded "><a href="1.2.3_register_file.html"><strong aria-hidden="true">1.2.3.</strong> Register File</a></li><li class="chapter-item expanded "><a href="1.2.4_pc.html"><strong aria-hidden="true">1.2.4.</strong> PC</a></li><li class="chapter-item expanded "><a href="1.2.5_alu.html"><strong aria-hidden="true">1.2.5.</strong> ALU</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="2_timing.html"><strong aria-hidden="true">2.</strong> Circuit Timing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2.1_propagation_delay.html"><strong aria-hidden="true">2.1.</strong> Gates and Chips Operate with a Propagation Delay</a></li><li class="chapter-item expanded "><a href="2.2_rtl.html"><strong aria-hidden="true">2.2.</strong> Propagation Delay Poses an Upper Limit to the Speed of RTL Circuits</a></li><li class="chapter-item expanded "><a href="2.3_diagramma_rtl.html"><strong aria-hidden="true">2.3.</strong> Keeping Track of the Dynamic Behaviour of RTL Circuits with Diagrams</a></li><li class="chapter-item expanded "><a href="2.4_pipeline.html"><strong aria-hidden="true">2.4.</strong> Introduction to the Pipelined Processor</a></li></ol></li><li class="chapter-item expanded "><a href="3_building_the_pipeline.html"><strong aria-hidden="true">3.</strong> Building the Pipelined Processor</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="3.1_from_singlecycle.html"><strong aria-hidden="true">3.1.</strong> Grouping the Components of the Single-Cycle Processor into Stages</a></li><li class="chapter-item expanded "><a href="3.2_stages.html"><strong aria-hidden="true">3.2.</strong> An Overview of how Each Inctruction Activates Each Stage</a></li></ol></li><li class="chapter-item expanded "><a href="4_demos.html"><strong aria-hidden="true">4.</strong> Executing Programs on the Pipelined Register</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4.1_simple_meaningless_program.html"><strong aria-hidden="true">4.1.</strong> DEMO - Meaningless Program</a></li><li class="chapter-item expanded "><a href="4.2_towards_hazards.html"><strong aria-hidden="true">4.2.</strong> DEMO - Program Towards Hazards</a></li><li class="chapter-item expanded "><a href="4.3_assignments.html"><strong aria-hidden="true">4.3.</strong> Assignment on Hazards</a></li></ol></li><li class="chapter-item expanded "><a href="5_appendix.html"><strong aria-hidden="true">5.</strong> RV32IMAC Cheat Sheet</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -136,46 +136,22 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="important-info-on-the-virtual-machine"><a class="header" href="#important-info-on-the-virtual-machine">Important Info on the Virtual Machine</a></h2>
-<p>The information that follows is not directly useful for the lesson but might be needed when operating the virtual machine:</p>
-<p><strong>Some Ripes sub-windows, like the Pipeline Diagram one, DO NOT have the 'x' button to close them. Use the 'Esc' key.</strong></p>
-<ul>
-<li>The virtual machine only shows the <code>Ripes</code> program, which opens at startup. It will be needed in the second part of the lesson.</li>
-<li>Verify that the copy and paste functionality works between the host and the guest (it is simply easier to copy programs from this site to within <code>Ripes</code>).</li>
-<li>Login credentials: 
-<ul>
-<li>user: <code>student</code></li>
-<li>psw : <code>student</code></li>
-</ul>
-</li>
-<li>System: <code>Manjaro Linux i3 minimal updated september 2022</code>. Any modification or update is strongly advised against to preserve functionality.</li>
-<li>How to open a terminal:
-<ul>
-<li><code>Alt+2</code> </li>
-<li><code>Alt+Enter</code></li>
-<li>The terminal is a standard linux terminal. If one desires to modify the i3 configuration, one has to modify the file <code>~/.config/i3/config</code> for example with the <code>nano</code> editor:
-<ul>
-<li><code>sudo nano ~/.config/i3/config</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>To return to Ripes in any moment:
-<ul>
-<li><code>Alt+1</code></li>
-</ul>
-</li>
-<li>If for any reason <code>Ripes</code> closes, reboot the virtual machine.</li>
-</ul>
+                        <h1 id="overview-and-prerequisites"><a class="header" href="#overview-and-prerequisites">Overview and Prerequisites</a></h1>
+<p>This lesson can be navigated with the menu on the left (first icon on the top left) or even only with the <code>Arrow Right</code> e <code>Arrow Left</code> keys.</p>
+<p>This site uses no server side cookies. Local storage is used, but only not to lose the user input to the site's widgets at every page refresh.</p>
+<p>After watching the overview video below, click <code>Arrow Right</code>, or choose from the menu on the left.</p>
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/kLswTs3N_Kc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h2 id="transcript"><a class="header" href="#transcript">Transcript</a></h2>
+<p>In this lesson we are going modify the hardware of a single cycle processor, building a new computer architecture paradigm that allows more instructions to be processed in the same amount of time, without loss of functionality.</p>
+<p>In order to understand the lesson, you should have just studied a single cycle processor design, and have a strong grasp of the functioning of each of its components. We are going to start from such a design to handcraft the new hardware organization. Similarly you should have a base knowledge of the RISC 5 RV 32 I Instruction Set, since its characteristics and nuances are reflected in the architecture, and we are going to use assembly examples and case studies.</p>
+<p>This also implies that you are comfortable with hex and 2's complement calculations and conversions, as well as with register aliases (RISC 5 ABI names).</p>
+<p>The lesson contains the tools you need to review all this material and keep it at hand. In particular, at the end of the lesson there is a link to some RISC 5 cheat sheets, that contains all the info you might need on the instruction set and on the ABI register names. The following section contains some exercises on encoding and decoding, together with hex and 2's complement calculations and conversions. Finally, the last part of the prerequisites sections, contains some interactive models, of some of the most important components of the processor. Later in the lesson we will use a visual processor simulator, and you will be asked to do exercises on it. If you have any doubts and need a level of granularity greater than what it offers, use these interactive models to review your knowledge.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="0.1_vm_setup.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                            <a rel="next" href="0.3_pretest.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="1.1_hex_2scomplement_rv32i.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -184,10 +160,7 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="0.1_vm_setup.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a rel="next" href="0.3_pretest.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="1.1_hex_2scomplement_rv32i.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

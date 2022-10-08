@@ -1,4 +1,10 @@
-# Prerequisites
+# Overview and Prerequisites
+
+This lesson can be navigated with the menu on the left (first icon on the top left) or even only with the ```Arrow Right``` e ```Arrow Left``` keys.
+
+This site uses no server side cookies. Local storage is used, but only not to lose the user input to the site's widgets at every page refresh.
+
+After watching the overview video below, click ```Arrow Right```, or choose from the menu on the left.
 
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/kLswTs3N_Kc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

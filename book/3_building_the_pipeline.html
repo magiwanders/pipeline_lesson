@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Building the Pipelined Processor (contains Ripes Tutorial) - Introduction to Pipelining</title>
+        <title>Building the Pipelined Processor - Introduction to Pipelining</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -77,7 +77,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="0_navigating_this_lesson.html"><strong aria-hidden="true">1.</strong> Navigating This Lesson</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="0.1_vm_setup.html"><strong aria-hidden="true">1.1.</strong> Virtual Machine Setup</a></li><li class="chapter-item expanded "><a href="0.2_important_info.html"><strong aria-hidden="true">1.2.</strong> Important Info on the Virtual Machine</a></li><li class="chapter-item expanded "><a href="0.3_pretest.html"><strong aria-hidden="true">1.3.</strong> Pre-test</a></li></ol></li><li class="chapter-item expanded "><a href="1_prerequisites.html"><strong aria-hidden="true">2.</strong> Prerequisites</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.1_exercises.html"><strong aria-hidden="true">2.1.</strong> Review of RISC-V Instruction Set, 2's complement and Hex Calculations</a></li><li class="chapter-item expanded "><a href="1.3_components_review.html"><strong aria-hidden="true">2.2.</strong> Review of Single Cycle Processor Components</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.4_single_register.html"><strong aria-hidden="true">2.2.1.</strong> Single Register</a></li><li class="chapter-item expanded "><a href="1.5_rom.html"><strong aria-hidden="true">2.2.2.</strong> ROM</a></li><li class="chapter-item expanded "><a href="1.6_register_file.html"><strong aria-hidden="true">2.2.3.</strong> Register File</a></li><li class="chapter-item expanded "><a href="1.7_pc.html"><strong aria-hidden="true">2.2.4.</strong> PC</a></li><li class="chapter-item expanded "><a href="1.8_alu.html"><strong aria-hidden="true">2.2.5.</strong> ALU</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="2_timing.html"><strong aria-hidden="true">3.</strong> Circuit Timing (contains SHEAS Tutorial)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2.1_propagation_delay.html"><strong aria-hidden="true">3.1.</strong> Consequences of a Non-Negligible Propagation Delay</a></li><li class="chapter-item expanded "><a href="2.3_rtl.html"><strong aria-hidden="true">3.2.</strong> Review of Register Transfer Level (RTL) abstraction</a></li><li class="chapter-item expanded "><a href="2.5_diagramma_rtl.html"><strong aria-hidden="true">3.3.</strong> A Diagram for Graphing the Dynamic Behaviour of RTL Circuits</a></li><li class="chapter-item expanded "><a href="2.6_pipeline.html"><strong aria-hidden="true">3.4.</strong> Introduction to the Pipelined Processor</a></li></ol></li><li class="chapter-item expanded "><a href="3_building_the_pipeline.html" class="active"><strong aria-hidden="true">4.</strong> Building the Pipelined Processor (contains Ripes Tutorial)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="3.1_from_singlecycle.html"><strong aria-hidden="true">4.1.</strong> Grouping the Components of the Single-Cycle Processor</a></li><li class="chapter-item expanded "><a href="3.4_stages.html"><strong aria-hidden="true">4.2.</strong> An Overview of how Each Inctruction Activates Each Stage</a></li></ol></li><li class="chapter-item expanded "><a href="4_demos.html"><strong aria-hidden="true">5.</strong> Towards Hazards</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4.1_simple_meaningless_program.html"><strong aria-hidden="true">5.1.</strong> DEMO - Meaningless Program</a></li><li class="chapter-item expanded "><a href="4.2_towards_hazards.html"><strong aria-hidden="true">5.2.</strong> DEMO - Program Towards Hazards</a></li><li class="chapter-item expanded "><a href="4.3_assignments.html"><strong aria-hidden="true">5.3.</strong> Assignment on Hazards</a></li></ol></li><li class="chapter-item expanded "><a href="5_appendix.html"><strong aria-hidden="true">6.</strong> RV32IMAC Cheat Sheet</a></li><li class="chapter-item expanded "><a href="5.1_posttest.html"><strong aria-hidden="true">7.</strong> Post-test</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="1_overview.html"><strong aria-hidden="true">1.</strong> Overview and Prerequisites</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.1_hex_2scomplement_rv32i.html"><strong aria-hidden="true">1.1.</strong> Review of RISC-V Instruction Set, 2's complement and Hex Calculations</a></li><li class="chapter-item expanded "><a href="1.2_components_review.html"><strong aria-hidden="true">1.2.</strong> Review of Single Cycle Processor Components</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1.2.1_single_register.html"><strong aria-hidden="true">1.2.1.</strong> Single Register</a></li><li class="chapter-item expanded "><a href="1.2.2_rom.html"><strong aria-hidden="true">1.2.2.</strong> ROM</a></li><li class="chapter-item expanded "><a href="1.2.3_register_file.html"><strong aria-hidden="true">1.2.3.</strong> Register File</a></li><li class="chapter-item expanded "><a href="1.2.4_pc.html"><strong aria-hidden="true">1.2.4.</strong> PC</a></li><li class="chapter-item expanded "><a href="1.2.5_alu.html"><strong aria-hidden="true">1.2.5.</strong> ALU</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="2_timing.html"><strong aria-hidden="true">2.</strong> Circuit Timing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="2.1_propagation_delay.html"><strong aria-hidden="true">2.1.</strong> Gates and Chips Operate with a Propagation Delay</a></li><li class="chapter-item expanded "><a href="2.2_rtl.html"><strong aria-hidden="true">2.2.</strong> Propagation Delay Poses an Upper Limit to the Speed of RTL Circuits</a></li><li class="chapter-item expanded "><a href="2.3_diagramma_rtl.html"><strong aria-hidden="true">2.3.</strong> Keeping Track of the Dynamic Behaviour of RTL Circuits with Diagrams</a></li><li class="chapter-item expanded "><a href="2.4_pipeline.html"><strong aria-hidden="true">2.4.</strong> Introduction to the Pipelined Processor</a></li></ol></li><li class="chapter-item expanded "><a href="3_building_the_pipeline.html" class="active"><strong aria-hidden="true">3.</strong> Building the Pipelined Processor</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="3.1_from_singlecycle.html"><strong aria-hidden="true">3.1.</strong> Grouping the Components of the Single-Cycle Processor into Stages</a></li><li class="chapter-item expanded "><a href="3.2_stages.html"><strong aria-hidden="true">3.2.</strong> An Overview of how Each Inctruction Activates Each Stage</a></li></ol></li><li class="chapter-item expanded "><a href="4_demos.html"><strong aria-hidden="true">4.</strong> Executing Programs on the Pipelined Register</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4.1_simple_meaningless_program.html"><strong aria-hidden="true">4.1.</strong> DEMO - Meaningless Program</a></li><li class="chapter-item expanded "><a href="4.2_towards_hazards.html"><strong aria-hidden="true">4.2.</strong> DEMO - Program Towards Hazards</a></li><li class="chapter-item expanded "><a href="4.3_assignments.html"><strong aria-hidden="true">4.3.</strong> Assignment on Hazards</a></li></ol></li><li class="chapter-item expanded "><a href="5_appendix.html"><strong aria-hidden="true">5.</strong> RV32IMAC Cheat Sheet</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -137,6 +137,53 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="building-the-pipelined-processor"><a class="header" href="#building-the-pipelined-processor">Building the Pipelined Processor</a></h1>
+<p>We are now going to build the pipeline, but we are going to use another simulation program: Ripes. Below you'll find a guide to download it and use it.</p>
+<h2 id="ripes-setup"><a class="header" href="#ripes-setup">Ripes Setup</a></h2>
+<h3 id="virtual-machine-setup"><a class="header" href="#virtual-machine-setup">Virtual Machine Setup</a></h3>
+<ul>
+<li>Download the virtual machine containing Ripes <a href="https://drive.google.com/uc?export=download&amp;id=1MIDXYVtsaYKxCYUdW-lFQ8cbkSl-Truh">HERE</a> (the file <code>comparch.ova</code> is relatively big at ~2.7GB)</li>
+<li>Download and install <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a> for your system.</li>
+<li>Open VirtualBox and import the file <code>comparch.ova</code>:
+<ul>
+<li><code>File &gt; Import Appliance</code></li>
+<li>Select the file <code>comparch.ova</code></li>
+<li>Click <code>Next</code>, click <code>Import</code></li>
+<li>A new Virtual Machine should appear in the main window. Double click for booting it up.</li>
+</ul>
+</li>
+</ul>
+<h3 id="important-info-on-the-virtual-machine"><a class="header" href="#important-info-on-the-virtual-machine">Important Info on the Virtual Machine</a></h3>
+<p>The information that follows is not directly useful for the lesson but might be needed when operating the virtual machine:</p>
+<p><strong>Some Ripes sub-windows, like the Pipeline Diagram one, DO NOT have the 'x' button to close them. Use the 'Esc' key.</strong></p>
+<ul>
+<li>The virtual machine only shows the <code>Ripes</code> program, which opens at startup. It will be needed in the second part of the lesson.</li>
+<li>Verify that the copy and paste functionality works between the host and the guest (it is simply easier to copy programs from this site to within <code>Ripes</code>).</li>
+<li>Login credentials: 
+<ul>
+<li>user: <code>student</code></li>
+<li>psw : <code>student</code></li>
+</ul>
+</li>
+<li>System: <code>Manjaro Linux i3 minimal updated september 2022</code>. Any modification or update is strongly advised against to preserve functionality.</li>
+<li>How to open a terminal:
+<ul>
+<li><code>Alt+2</code> </li>
+<li><code>Alt+Enter</code></li>
+<li>The terminal is a standard linux terminal. If one desires to modify the i3 configuration, one has to modify the file <code>~/.config/i3/config</code> for example with the <code>nano</code> editor:
+<ul>
+<li><code>sudo nano ~/.config/i3/config</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>To return to Ripes in any moment:
+<ul>
+<li><code>Alt+1</code></li>
+</ul>
+</li>
+<li>If for any reason <code>Ripes</code> closes, reboot the virtual machine.</li>
+</ul>
+<h2 id="ripes-tutorial"><a class="header" href="#ripes-tutorial">Ripes Tutorial</a></h2>
 <iframe width="854" height="480" src="https://www.youtube.com/embed/fYGnEghKAKI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h2 id="transcript"><a class="header" href="#transcript">TRANSCRIPT</a></h2>
 <p>This tutorial is an unofficial Introduction to Ripes two point two point three.</p>
@@ -161,7 +208,7 @@ The pipeline view, or horizontal/global view, focuses on the evolution and globa
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="2.6_pipeline.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="2.4_pipeline.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                             <a rel="next" href="3.1_from_singlecycle.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
@@ -173,7 +220,7 @@ The pipeline view, or horizontal/global view, focuses on the evolution and globa
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="2.6_pipeline.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="2.4_pipeline.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                     <a rel="next" href="3.1_from_singlecycle.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">

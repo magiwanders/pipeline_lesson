@@ -152,6 +152,7 @@
 <p>This also implies that you are comfortable with hex and 2's complement calculations and conversions, as well as with register aliases (RISC 5 ABI names).</p>
 <p>The lesson contains the tools you need to review all this material and keep it at hand. In particular, at the end of the lesson there is a link to some RISC 5 cheat sheets, that contains all the info you might need on the instruction set and on the ABI register names. The following section contains some exercises on encoding and decoding, together with hex and 2's complement calculations and conversions. Finally, the last part of the prerequisites sections, contains some interactive models, of some of the most important components of the processor. Later in the lesson we will use a visual processor simulator, and you will be asked to do exercises on it. If you have any doubts and need a level of granularity greater than what it offers, use these interactive models to review your knowledge.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="review-of-risc-v-instruction-set-2s-complement-and-hex-calculations"><a class="header" href="#review-of-risc-v-instruction-set-2s-complement-and-hex-calculations">Review of RISC-V Instruction Set, 2's complement and Hex Calculations</a></h1>
+<p><strong>Please write your answers on a document, to then submit as PDF in the &quot;Assignments&quot; section.</strong></p>
 <p>Remember than there is a link to a <a href="./5_appendix.html">RV32IMAC Cheat Sheet</a> at the end of the lesson.</p>
 <ol>
 <li>
@@ -307,6 +308,7 @@ The register file contains the 32 registers that are referred to in the assembly
 <iframe width="100%" height="500" src="https://www.youtube.com/embed/tabjllLuzNI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <div id="sheas_container_1"><div style="width:100%; height:100%"><div class="loader"></div></div></div>
 <h2 id="exercises"><a class="header" href="#exercises">Exercises</a></h2>
+<p><strong>Please write your answers on a document, to then submit as PDF in the &quot;Assignments&quot; section. Mind that all answers from the whole Circuit Timing section are to be written on the same document. Feel free to add images to your answers, if it helps to explain something more concisely.</strong></p>
 <ol>
 <li>
 <p>Conduct a qualitative analysis of the full adder circuit similar to that done for the xnor gate in the previous lesson. What propagation delay do you estimate?
@@ -720,7 +722,7 @@ LOOP:
 <div class="table-wrapper"><table><thead><tr><th>CONTEXT</th><th>24/7 Laundry</th><th>Single Cycle Processor</th></tr></thead><tbody>
 <tr><td>THING TO PROCESS</td><td>CLIENT</td><td>INSTRUCTION</td></tr>
 <tr><td>STAGES OF PROCESSING (fake timings)</td><td>Wash 1.45h, Dry 1.30h, Iron</td><td>Fetch 4ns, Decode 1ns, Reg read 4ns, Execution 5ns, Memory 6ns, Writeback 3ns</td></tr>
-<tr><td>WHO ARE WE</td><td>Owners and Managers</td><td>R&amp;D Engineers, with the task to make the processor faster</td></tr>
+<tr><td>WHO ARE WE</td><td>The Owners Evelyn and Waymond Wang</td><td>R&amp;D Engineers, with the task to make the processor faster</td></tr>
 <tr><td>CONSTRAINT</td><td>Only one client in the room at any given time. The laundry serves one client every 5.15h -&gt; 4.36 clients a day</td><td>Only one instruction in the processor at any given time. The processor serves one instruction every 23ns -&gt; 43.478.261 instructions per second (~43.5 MHz)</td></tr>
 <tr><td>SOLUTION</td><td>Let three clients in the room at any given time, each using one machine and waiting for the next machine to free before using it (every two hours, the time of the longest task).</td><td>Divide the hardware of the processor in stages, one for each sub-operation, with interstate registers, which are clocked every 6 ns (time of the longest task)</td></tr>
 <tr><td>CONS</td><td>Clients waits 15 minutes after washing before drying, and 30 minutes after drying before ironing, since ironing is the longest task. Each client takes 6 hours instead of 5.15 h to was the clothes.</td><td>Every stage except the slowest one will stall for some time after propagating, since they have to wait for the memory stage, the slowest, to finish so they can all proceed. Each instruction takes more to process five times the longest delay (5x6=30ns) instead of the sum of delays (23ns)</td></tr>
@@ -748,6 +750,7 @@ LOOP:
     }
 </script>
 <h1 id="exercises-1"><a class="header" href="#exercises-1">Exercises</a></h1>
+<p><strong>Please write your answers on a document, to then submit as PDF in the &quot;Assignments&quot; section. Mind that all answers from the whole Circuit Timing section are to be written on the same document. Feel free to add images to your answers, if it helps to explain something more concisely.</strong></p>
 <ol>
 <li>You found out during previous exercises a qualitative estimate of the maximum theoretical propagation delay of the Incrementer circuit. You may have noticed that the circuit is actually a 8 bit adder with one &quot;hidden&quot; input set to one. Did this influence your estimate of the total propagation delate? Discuss the difference in expected actual propagation delay, if any, between a normal adder and the incrementer.</li>
 </ol>
@@ -885,6 +888,7 @@ The pipeline view, or horizontal/global view, focuses on the evolution and globa
   </tbody>
 </table>
 <h2 id="exercise"><a class="header" href="#exercise">Exercise</a></h2>
+<p><strong>Please write your answers on a document, to then submit as PDF in the &quot;Assignments&quot; section. Feel free to add images to your answers, if it helps to explain something more concisely.</strong></p>
 <ol>
 <li>Where in the groups we just defined are placed the components that were hidden in the standard visualization of the processor but that are shown in the extended visualization? Complete the table above with all the new components and signals.</li>
 </ol>
@@ -1144,6 +1148,7 @@ If the problem propagates, it means that execution will contain errors and it ca
 <p>Another way is to pinpoint where exactly the value that the add instruction needs is ready, or where it is really needed. In our case, the value is ready as soon as it is retrieved for memory, in the memory stage, which is one cycle before the original case. At the same time, the value is retrieved in the decode stage but it is not needed there, it is only needed for the alu in the execution stage, that is one cycle after the original case. It is possible to forward the needed value from a point of the pipeline to another, in order to minimise the stall cycles of an instruction that is waiting for a value to be ready. This means in our case, forwarding the value 0 ex 123 for example from the write back stage directly to the execution stage, so that the add instruction must only wait for one cycles instead of two. Again, there would be the need of a chip that handles such occurrences, called a Forwarding Unit.</p>
 <p>In the next lesson we will see exactly how to generalise this.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="assignments"><a class="header" href="#assignments">Assignments</a></h1>
+<p><strong>Please write your report on a document, to then submit as PDF in the form below. Feel free to add images, if it helps to explain something more concisely.</strong></p>
 <ol>
 <li>Simulate the program below in a similar way to the previous lesson. Write a small report (~1 page) in which you describe what execution error you found and how you recognized it, together with what the consequence on the execution of the whole program is. Comment what the assembly does before simulating it and specify any signal that you reckon holds the wrong value and specify why it should hold the value you think is correct. Try to describe what is similar and what differs with the execution error found in the program of the previous lesson. Finally, describe how this error could be solved by using stalls or forwarding values between stages. Do not be afraid to speculate or get this last point wrong, the topic of the next lesson will be exactly this.</li>
 </ol>
@@ -1169,6 +1174,10 @@ If the problem propagates, it means that execution will contain errors and it ca
     sub a2 t1 t1 # a2 = t1-t1
     j LOOP
 </code></pre>
+<ol start="2">
+<li>[Optional &quot;game&quot; to do in couples. Although very suggested, as it is an effective way to prepare to one of the course's exam exercise types.] Without the second person knowing, the first person chooses a program among the ones below, or writes a simple assembly program of his own. With the help of Ripes, he/she studies the program and if necessary comes up with a proper register initialization scheme to make it do something interesting. Then, the roles of the &quot;game&quot; are chosen: the first person chooses a stage of the pipeline to play as, and communicates it to the second person, while the second person, who cannot use the simulator (nor knows what program was chosen), plays as one adjecent stage. For example if the first person chooses to play as EX stage, the second can choose to play either as the MEM stage or as the ID stage. Mind that playing as the previous stage is always a bit more difficult than playing as the following stage. The first person chooses a random cycle of the execution of the program, which he/she can keep on Ripes as reference, and the objective of the second person is to find out the exact cycle number the first person chose: the way the second person finds out is by asking the first person to tell the value of some signal. Not any signal, just the signals that the two stages have in common: for example if the second person is playing as the ID stage and the first as EX stage, the second person cannot ask &quot;What is the result of the alu?&quot; or &quot;Is the branch taken.&quot;, because those signals have nothing to do with the ID stage, but he/she can ask &quot;What is the value of the first source register in the EX stage?&quot; or &quot;Is the alu selecting the PC or the first register as first operand?&quot; or again &quot;What is the ALU function?&quot; as those are signals that the ID stage calculated in the previous clock and passed to the EX stage. If the second person is playing as the MEM stage (and the first always as EX), he/she can ask &quot;What is the alu result?&quot; as it will receive it in the next cycle, but not &quot;Is the branch taken?&quot; because that signal will never be &quot;viewed&quot; by the MEM stage. When the second person feels he/she understood which cycle the simulation is at, a guess is made. A correct guess is a win for the second player, a wrong guess is a win for the first. If the players wish, they can setup a system of points: the second players gets more points if he/she uses less questions to make a right guess, and makes the first player gain more points if the guess is wrong after many questions. For example starting from 10, if the guess is right the second player gets 10 minus number of questions asked points. If the guess is wrong the first player gets the number of questions asked points. </li>
+</ol>
+<p>In order to increase the game difficulty, the two players can play as non-consecutive stages.</p>
 <!-- 2. A COPPIE: la prima persona sceglie uno stage qualunque e un programma tra gli esempi sotto, e "gioca" nel ruolo di tale stage, mente la seconda nel ruolo dello stage successivo. Seguendo come reference la tabella della sezione [4.3](./3.3_soluzioni.md) la prima persona calcola e comunica alla seconda i dati relativi al proprio stage (ultima colonna della tabella), la seconda deve dedurre che istruzione sta nello stage precedente e calcolare di conseguenza i dati relativi al proprio stage nel prossimo ciclo. Ci si corregge con il simulatore, idealmente operato dalla prima persona. Dopo qualche istruzione ci si inverte. Questo esercizio è utile in quanto simile a uno degli esercizi d'esame.
 - ESEMPIO:
     - PERSONA 1 sceglie il primo programma tra quelli sotto e lo stage MEM. I dati che passa al collega sono:
@@ -1185,36 +1194,29 @@ If the problem propagates, it means that execution will contain errors and it ca
 
 
 ## Esempi di programmi dall'internet
-
-```assembly
-addi x2, x0, 1
+-->
+<pre><code class="language-assembly">addi x2, x0, 1
 
 loop:
   sub x1, x1, x2
   sw  x1, 4(x0)
   blt x0, x1, loop
-```
-
-```assembly
- addi x5,x0,0x11        # set x5 to 0x11
+</code></pre>
+<pre><code class="language-assembly"> addi x5,x0,0x11        # set x5 to 0x11
   sw x5, 0x100(x0)       # store at address 0x100
   lw x6, 0x100(x0)       # get from mem
   addi x6,x6,1          
   sw x6, 0x104(x0)       # store to mem 0x104
-```
-
-```assembly
-   addi x3,x0,0    # i = 0
+</code></pre>
+<pre><code class="language-assembly">   addi x3,x0,0    # i = 0
    addi x4,x0,10   # const 10
 loop:
    bge  x3,x4, exit
    addi x3,x3,1
    j loop
 exit:
-```
-
-```assembly
-  addi x3,x0,0       #  s = 0
+</code></pre>
+<pre><code class="language-assembly">  addi x3,x0,0       #  s = 0
   addi x4,x0,0       #  i = 0
   addi x5,x0,5       #  const 5
   addi x6,x0,0x100   #  base address of ax[]
@@ -1228,7 +1230,7 @@ loop:
   addi x4, x4, 1    # increment index
   j loop
 exit:
-``` -->
+</code></pre>
 <h2 id="answers-form"><a class="header" href="#answers-form">Answers Form</a></h2>
 <p>Please upload here the answers to the questions you have encountered during the lesson:</p>
 <iframe width="100%" height="500px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=K3EXCvNtXUKAjjCd8ope62KdyETcpsdCkuMPv8Z87j1UOFFGWUJGVjg5VkJEMjdaNldENlVIMU05VC4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>

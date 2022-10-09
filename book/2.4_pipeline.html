@@ -354,7 +354,7 @@ LOOP:
 <div class="table-wrapper"><table><thead><tr><th>CONTEXT</th><th>24/7 Laundry</th><th>Single Cycle Processor</th></tr></thead><tbody>
 <tr><td>THING TO PROCESS</td><td>CLIENT</td><td>INSTRUCTION</td></tr>
 <tr><td>STAGES OF PROCESSING (fake timings)</td><td>Wash 1.45h, Dry 1.30h, Iron</td><td>Fetch 4ns, Decode 1ns, Reg read 4ns, Execution 5ns, Memory 6ns, Writeback 3ns</td></tr>
-<tr><td>WHO ARE WE</td><td>Owners and Managers</td><td>R&amp;D Engineers, with the task to make the processor faster</td></tr>
+<tr><td>WHO ARE WE</td><td>The Owners Evelyn and Waymond Wang</td><td>R&amp;D Engineers, with the task to make the processor faster</td></tr>
 <tr><td>CONSTRAINT</td><td>Only one client in the room at any given time. The laundry serves one client every 5.15h -&gt; 4.36 clients a day</td><td>Only one instruction in the processor at any given time. The processor serves one instruction every 23ns -&gt; 43.478.261 instructions per second (~43.5 MHz)</td></tr>
 <tr><td>SOLUTION</td><td>Let three clients in the room at any given time, each using one machine and waiting for the next machine to free before using it (every two hours, the time of the longest task).</td><td>Divide the hardware of the processor in stages, one for each sub-operation, with interstate registers, which are clocked every 6 ns (time of the longest task)</td></tr>
 <tr><td>CONS</td><td>Clients waits 15 minutes after washing before drying, and 30 minutes after drying before ironing, since ironing is the longest task. Each client takes 6 hours instead of 5.15 h to was the clothes.</td><td>Every stage except the slowest one will stall for some time after propagating, since they have to wait for the memory stage, the slowest, to finish so they can all proceed. Each instruction takes more to process five times the longest delay (5x6=30ns) instead of the sum of delays (23ns)</td></tr>
@@ -382,6 +382,7 @@ LOOP:
     }
 </script>
 <h1 id="exercises"><a class="header" href="#exercises">Exercises</a></h1>
+<p><strong>Please write your answers on a document, to then submit as PDF in the &quot;Assignments&quot; section. Mind that all answers from the whole Circuit Timing section are to be written on the same document. Feel free to add images to your answers, if it helps to explain something more concisely.</strong></p>
 <ol>
 <li>You found out during previous exercises a qualitative estimate of the maximum theoretical propagation delay of the Incrementer circuit. You may have noticed that the circuit is actually a 8 bit adder with one &quot;hidden&quot; input set to one. Did this influence your estimate of the total propagation delate? Discuss the difference in expected actual propagation delay, if any, between a normal adder and the incrementer.</li>
 </ol>

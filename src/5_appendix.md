@@ -1,11 +1,15 @@
 # Appendix
 
-Embedded below is the pdf summorizing the entire RISC-V instruction set (RV32IMAC), which is useful during most lessons. The pdf is structured as follows:
-- ```p.1``` - Instructions on how to read the tables.
-- ```p.2``` - Registers Table.
-- ```p.3-5``` - Encoder Table (to translate assembly into binary machine code manually).
-- ```p.6-7 ``` - Decoder Table (to translate binary machine code into assembly manually)
+This part of the lesson contains complementary material to the rest of the lesson.
 
-<a href="https://nbviewer.org/github/magiwanders/pipeline_lesson/blob/main/RV32IMAC_Sliderule_Encoder_Decoder_v0.1.6.pdf" target="_blank">Open PDF in another tab</a>
-
-<iframe src="https://nbviewer.org/github/magiwanders/pipeline_lesson/blob/main/RV32IMAC_Sliderule_Encoder_Decoder_v0.1.6.pdf" width="100%" height="720" allow="autoplay"></iframe>
+## Index
+- [RV32IMAC Cheat Sheet](./5.1_rv21imac.md)
+- [Single Cycle Processor Components](./5.2_components_review.md)
+    - [Single Register](./5.2.1_single_register.md)
+    - [ROM](./5.2.2_rom.md)
+    - [Register File](./5.2.3_register_file.md)
+    - [PC](./5.2.4_pc.md)
+    - [ALU](./5.2.5_alu.md)
+- [Simulation Tools](./5.3_simulation_tools.md)
+    - [S.H.E.A.S. Tutorial](./5.3.1_sheas.md)
+    - [Ripes Tutorial](./5.3.2_ripes.md)

@@ -2,10 +2,10 @@
 
 Finally, in the next two sessions we will see the dynamic execution of two simple assembly programs on Ripes.
 
-Make sure you have read [Setup](./0.1_setup.md) and [Important Info](./0.2_important_info.md) in order to use the Ripes virtual machine properly.
+Make sure you have read [THIS](./5.3.2_ripes.md) in order to setup Ripes properly and know how to use it.
 
 ### Index
 
 - [DEMO - Meaningless Program](./4.1_simple_meaningless_program.md)
 - [DEMO - Program Towards Hazards](./4.2_towards_hazards.md)
-- [Assignment on Hazards](./4.3_assignments.md)
+- [Assignments](./4.3_assignments.md)

@@ -17,7 +17,11 @@ for (circuit_name in circuits) {
     var sheas_container = document.getElementById(circuit_name)
     if (sheas_container!= undefined) {
         console.log('Requesting circuit: ', circuit_name)
-        buildSHEAS('embedded', sheas_container, circuits[circuit_name])
+        if (circuit_name == 'sheas_container_register' || circuit_name == 'sheas_container_registerfile' || circuit_name == 'sheas_container_alu' || circuit_name == 'sheas_container_rom' || circuit_name == 'sheas_container_pc') {
+            buildSHEAS('complete', sheas_container, circuits[circuit_name])
+        } else {
+            buildSHEAS('embedded', sheas_container, circuits[circuit_name])
+        }
     }
 }
 

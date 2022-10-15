@@ -25,20 +25,20 @@ The lesson assumes that:
  - You know what the main components of a simple processor are and how assembly runs on them.
 
 If at any moment you need to review any of these concepts, we have left some resources in the Appendix, expecially:
- - A RISC-V Instruction Set Cheat Sheet [HERE](5.1_rv21imac.md)
- - Interactive models of the most important components of a processor [HERE](./5.2_components_review.md). Use these models if at any point during the lesson you feel the need to see how one of the components works as isolate. For example if you want to see what is happening inside the ALU at a specific time of a Ripes program simulation, just copy in the interactive ALU model found in the appendix the values that you see in Ripes and inspect the ALU from there.
+ - A RISC-V Instruction Set Cheat Sheet [HERE](./6.1_rv21imac.md)
+ - Interactive models of the most important components of a processor [HERE](./6.2_components_review.md). Use these models if at any point during the lesson you feel the need to see how one of the components works as isolate. For example if you want to see what is happening inside the ALU at a specific time of a Ripes program simulation, just copy in the interactive ALU model found in the appendix the values that you see in Ripes and inspect the ALU from there.
 
 ## Setup 
 
 The lesson will use two simulation software, that is recommended that you verify are working for you before the lesson:
- - S.H.E.A.S., a simple logic ports simulator also available [standalone](https://sheas.magiwanders.com). It will however be mostly embedded in the lesson pages. A tutorial is available in the appendices [HERE](./5.3.1_sheas.md)
- - Ripes, a visual RISC-V processor simulator. The appendices contain [HERE](./5.3.2_ripes.md) a virtual machine, to be sure it will work on any system, and a tutorial of the program.
+ - S.H.E.A.S., a simple logic ports simulator also available [standalone](https://sheas.magiwanders.com). It will however be mostly embedded in the lesson pages. A tutorial is available in the appendices [HERE](./6.3.1_sheas.md)
+ - Ripes, a visual RISC-V processor simulator. The appendices contain [HERE](./6.3.2_ripes.md) a virtual machine, to be sure it will work on any system, and a tutorial of the program.
  
 ## Overview 
 
-The lesson will consist of videos, interactive visualization tools, and sometimes exercises. Expect to dedicate two to four hours for completing the lesson, depending on your own pace (you could take even less). We will ask you to compile two forms:
+The lesson will consist of videos, interactive visualization tools, and sometimes exercises. Most of the section with the video include and almost identical transcript below. Expect to dedicate two to four hours for completing the lesson, depending on your own pace (you could take even less). We will ask you to compile two forms:
  - An [Answers Form](https://forms.office.com/r/PVqkuE9WS2), in which we ask you to submit the answers to the various questions and exercises found along the lesson. Open it now and keep it open in another tab for easier access during the lesson.
- - A [Final Evaluation Form](https://forms.office.com/r/eWebw6D5uT), which you will also find in the [Assignments Section](./4.3_assignments.md) in embedded form for easier access. This has to be compiled after you have finished the lesson and the assignments.
+ - A [Final Evaluation Form](https://forms.office.com/r/eWebw6D5uT), which you will also find in the [Assignments Section](./5_assignments.md) in embedded form for easier access. This has to be compiled after you have finished the lesson and the assignments.
 
 What follows is an overview of the next chapters.
 
@@ -48,7 +48,7 @@ What follows is an overview of the next chapters.
 
  - [Chapter 4 - Demos](./4_demos.md): this chapter will finally cover the execution on the pipelined processor of a couple of programs from start to finish. We will encounter the problems that the pipeline introduced and that were not of concern before, and develop an intuition on how to resolve them. At the end of this chapter you will find the [EVALUATION FORM]() embedded below the assignments.
 
- - [Appendix](./5_appendix.md): as said above, this contains some corollary material for the lesson, among which is the setup and tutorials for the two software tools we are going to use, a reference of the RISC-V Instruction Set and a catalogue of interactive processor components.
+ - [Appendix](./6_appendix.md): as said above, this contains some corollary material for the lesson, among which is the setup and tutorials for the two software tools we are going to use, a reference of the RISC-V Instruction Set and a catalogue of interactive processor components.
 
 <!-- ## Pre-Test
 

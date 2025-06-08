@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+<!--    <base href="./">-->
+    <script src="./wasm_exec.js"></script>
+    <script>
+
+        if (WebAssembly) {
+             // WebAssembly.instantiateStreaming is not currently available in Safari
+             if (WebAssembly && !WebAssembly.instantiateStreaming) { // polyfill
+                 WebAssembly.instantiateStreaming = async (resp, importObject) => {
+                    const source = await (await resp).arrayBuffer();
+                     return await WebAssembly.instantiate(source, importObject);
+                 };
+             }
+
+             const go = new Go();
+             WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+                go.run(result.instance);
+             });
+        } else {
+           console.log("WebAssembly is not supported in your browser")
+        }
+
+    </script>
+    <script src="./runtime_experiments.js" type = "module"></script>
+    <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>
+    <script src="./plot.js" type = "module" ></script>
+    <script src="./mult.js"></script>
+    <script src="./index.js" type = "module"></script>
+</head>
+
+<body>
+<h3>Mock Matrix Multiplication Benchmark</h3>
+<br>
+P = number of matrices
+<br>
+N = size of square matrices
+<br><br>
+Run with P from <input id="Pfrom" type="number" value = 5 min=0 style="width: 4em"> to <input id="Pto" type="number" value = 25 min=0 style="width: 4em"> at step <input id="Pstep" type="number" value = 5 min=1 style="width: 4em"> <br>
+and with N from <input id="Nfrom" type="number" value = 10 min=0 style="width: 4em"> to <input id="Nto" type="number" value = 500 min=0 style="width: 4em"> at step <input id="Nstep" type="number" value = 10 min=0 style="width: 4em"> <br>
+<button id = 'create_plot' onclick="run_tests()">Create Plot</button>
+(might take a while, see the console for progress)
+<div id='3d_plot'></div>
+</body>
+
+</html>

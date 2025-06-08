@@ -1,0 +1,21 @@
+<head>
+  <!-- <script type = 'worklet' src="./dsp.js"></script> -->
+  <!-- <script type="module" src="./d.js"></script> -->
+  <script src="index.js"></script>
+  <script src="js_builds_html/html_builders.js"></script>
+  <script src="simple_hardware_editor_and_simulator/digitaljs_webpack_backup.js"></script>
+  <script src="simple_hardware_editor_and_simulator/lz-string_backup.js"></script>
+  <script src="simple_hardware_editor_and_simulator/chips.js"></script>
+  <!-- <script src="./simple_hardware_editor_and_simulator/tester.js"></script> -->
+  <script src="simple_hardware_editor_and_simulator/sheas_functions.js"></script>
+  <script src="simple_hardware_editor_and_simulator/sheas_builders.js"></script>
+    <script>var exports = {};</script>
+    <script src="3vl.js"></script>
+</head>
+
+<body>
+  <button id = 'toggle' onclick="toggle()">Toggle Internals</button> <br>
+  Currently holding <p style="display: inline-block" id="which">SLOW</p> implementation. 
+  <p id="explanation">This is a first principles implementation using universal gates. The element can be inspected down to Nand gates.</p>
+  <div id="sheas_container"></div>
+</body>
